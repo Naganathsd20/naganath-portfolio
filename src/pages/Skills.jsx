@@ -1,6 +1,8 @@
 import React from 'react';
 import { PageLayout } from '../components/layout/PageLayout';
 import { SkillCard } from '../components/ui/SkillCard';
+import { Card } from '../components/common/Card';
+import { Code2, Terminal } from 'lucide-react';
 import { skills } from '../data/portfolioData';
 
 export function Skills() {
@@ -14,39 +16,39 @@ export function Skills() {
   ];
 
   return (
-    <PageLayout title="Skills — Naganath S Dharwadkar">
-      <div className="min-h-screen bg-[#0B1120] text-[#F8FAFC]">
+    <PageLayout title="Skills Dashboard">
+      <div className="space-y-8 pb-12">
         
         {/* Header Section */}
-        <section className="pt-12 pb-8 sm:pt-16 sm:pb-12 border-b border-[#334155]">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#FFFFFF]">
-              Skills
-            </h1>
-            <p className="mt-3 text-[18px] text-[#E2E8F0] font-medium leading-[1.8] tracking-[0.2px] max-w-2xl">
-              Technologies and tools I use for building modern web applications.
-            </p>
+        <div className="border-b border-slate-200/80 pb-5">
+          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-purple-600 mb-1">
+            <Terminal className="w-4 h-4" /> Technical Competencies & Stack
           </div>
-        </section>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Skills Dashboard
+          </h1>
+          <p className="mt-1 text-sm text-slate-600 font-mono">
+            Verified technologies, frameworks, and developer tools used across my full-stack projects.
+          </p>
+        </div>
 
-        {/* Category Sections */}
-        <section className="py-12 sm:py-16">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            {skillCategories.map((category, idx) => (
-              <div key={idx} className="bg-[#243447] border border-[#334155] rounded-[18px] p-6 sm:p-8 shadow-xl space-y-6">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#FFFFFF] tracking-tight border-b border-[#334155] pb-3">
-                  {category.title}
-                </h2>
+        {/* Category Grid */}
+        <div className="space-y-6">
+          {skillCategories.map((category, idx) => (
+            <Card key={idx} className="p-6 space-y-4">
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight border-b border-slate-100 pb-3 flex items-center gap-2">
+                <Code2 className="w-4 h-4 text-purple-600" />
+                {category.title}
+              </h2>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {category.items.map((skill, itemIdx) => (
-                    <SkillCard key={itemIdx} skill={skill} />
-                  ))}
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                {category.items.map((skill, itemIdx) => (
+                  <SkillCard key={itemIdx} skill={skill} />
+                ))}
               </div>
-            ))}
-          </div>
-        </section>
+            </Card>
+          ))}
+        </div>
 
       </div>
     </PageLayout>

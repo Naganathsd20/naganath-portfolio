@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, User, Tag, FileText, Check } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, User, Tag, FileText } from 'lucide-react';
 import { PageLayout } from '../components/layout/PageLayout';
 import { Card } from '../components/common/Card';
 import { Badge } from '../components/common/Badge';
@@ -35,264 +35,202 @@ export function Contact() {
     setTimeout(() => {
       setStatus({ submitted: true, loading: false });
       setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 800);
+    }, 600);
   };
 
   return (
-    <PageLayout title="Contact — Naganath S Dharwadkar">
-      <div className="min-h-screen bg-[#0B1120] text-[#F8FAFC]">
+    <PageLayout title="Contact Dashboard">
+      <div className="space-y-8 pb-12">
         
-        {/* Title & Subtitle Section */}
-        <section className="pt-12 pb-8 sm:pt-16 sm:pb-12 border-b border-[#334155]">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#FFFFFF]">
-              Contact
-            </h1>
-            <p className="mt-3 text-[18px] text-[#E2E8F0] font-medium leading-[1.8] tracking-[0.2px] max-w-3xl">
-              I'd love to connect regarding software development opportunities, internships, collaborations, or technical discussions. Feel free to reach out anytime.
-            </p>
+        {/* Header */}
+        <div className="border-b border-slate-200/80 pb-5">
+          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-purple-600 mb-1">
+            <Mail className="w-4 h-4" /> Get In Touch
           </div>
-        </section>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Contact Dashboard
+          </h1>
+          <p className="mt-1 text-sm text-slate-600 font-mono">
+            Open for software developer roles, internships, web application projects, and collaborations.
+          </p>
+        </div>
 
-        {/* Main Two-Column Layout Section */}
-        <section className="py-12 sm:py-16">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-              
-              {/* LEFT SIDE: Clickable Modern Contact Cards */}
-              <div className="space-y-4">
-                
-                {/* 1. Email Card */}
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="block group"
-                >
-                  <Card className="p-5 flex items-center gap-4 bg-[#1E293B] border-[#334155] group-hover:border-[#22D3EE]/60 transition-all duration-300 rounded-2xl shadow-lg">
-                    <div className="w-12 h-12 rounded-xl bg-[#111827] border border-[#334155] group-hover:border-[#22D3EE]/40 text-[#22D3EE] flex items-center justify-center flex-shrink-0 transition-colors">
-                      <Mail className="w-5 h-5 text-[#22D3EE]" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs font-mono text-[#94A3B8] uppercase font-semibold">Email</p>
-                      <p className="text-base font-bold text-[#F8FAFC] group-hover:text-[#22D3EE] transition-colors truncate">
-                        {personalInfo.email}
-                      </p>
-                    </div>
-                  </Card>
-                </a>
-
-                {/* 2. Phone Card */}
-                <a
-                  href={`tel:${personalInfo.phone}`}
-                  className="block group"
-                >
-                  <Card className="p-5 flex items-center gap-4 bg-[#1E293B] border-[#334155] group-hover:border-[#22D3EE]/60 transition-all duration-300 rounded-2xl shadow-lg">
-                    <div className="w-12 h-12 rounded-xl bg-[#111827] border border-[#334155] group-hover:border-[#22D3EE]/40 text-[#22D3EE] flex items-center justify-center flex-shrink-0 transition-colors">
-                      <Phone className="w-5 h-5 text-[#22D3EE]" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs font-mono text-[#94A3B8] uppercase font-semibold">Phone</p>
-                      <p className="text-base font-bold text-[#F8FAFC] group-hover:text-[#22D3EE] transition-colors truncate">
-                        {personalInfo.phone}
-                      </p>
-                    </div>
-                  </Card>
-                </a>
-
-                {/* 3. LinkedIn Card */}
-                <a
-                  href={personalInfo.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block group"
-                >
-                  <Card className="p-5 flex items-center gap-4 bg-[#1E293B] border-[#334155] group-hover:border-[#22D3EE]/60 transition-all duration-300 rounded-2xl shadow-lg">
-                    <div className="w-12 h-12 rounded-xl bg-[#111827] border border-[#334155] group-hover:border-[#22D3EE]/40 text-[#22D3EE] flex items-center justify-center flex-shrink-0 transition-colors">
-                      <LinkedinIcon className="w-5 h-5 text-[#22D3EE]" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs font-mono text-[#94A3B8] uppercase font-semibold">LinkedIn</p>
-                      <p className="text-base font-bold text-[#F8FAFC] group-hover:text-[#22D3EE] transition-colors truncate">
-                        LinkedIn Profile
-                      </p>
-                    </div>
-                  </Card>
-                </a>
-
-                {/* 4. GitHub Card */}
-                <a
-                  href={personalInfo.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block group"
-                >
-                  <Card className="p-5 flex items-center gap-4 bg-[#1E293B] border-[#334155] group-hover:border-[#22D3EE]/60 transition-all duration-300 rounded-2xl shadow-lg">
-                    <div className="w-12 h-12 rounded-xl bg-[#111827] border border-[#334155] group-hover:border-[#22D3EE]/40 text-[#22D3EE] flex items-center justify-center flex-shrink-0 transition-colors">
-                      <GithubIcon className="w-5 h-5 text-[#22D3EE]" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs font-mono text-[#94A3B8] uppercase font-semibold">GitHub</p>
-                      <p className="text-base font-bold text-[#F8FAFC] group-hover:text-[#22D3EE] transition-colors truncate">
-                        GitHub Profile
-                      </p>
-                    </div>
-                  </Card>
-                </a>
-
-                {/* 5. Location Card (Simple Card, No Map Embed) */}
-                <Card className="p-5 flex items-center justify-between gap-4 bg-[#1E293B] border-[#334155] rounded-2xl shadow-lg">
-                  <div className="flex items-center gap-4 min-w-0">
-                    <div className="w-12 h-12 rounded-xl bg-[#111827] border border-[#334155] text-[#22D3EE] flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-5 h-5 text-[#22D3EE]" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs font-mono text-[#94A3B8] uppercase font-semibold">Location</p>
-                      <p className="text-base font-bold text-[#F8FAFC] truncate">
-                        Dharwad, Karnataka, India
-                      </p>
-                    </div>
-                  </div>
-                  <Badge variant="success" className="flex-shrink-0 font-mono text-xs">
-                    Open to Relocation ✅
-                  </Badge>
-                </Card>
-
-              </div>
-
-              {/* RIGHT SIDE: Professional Contact Form */}
-              <Card className="p-6 sm:p-8 bg-[#1E293B] border-[#334155] rounded-2xl shadow-xl space-y-6">
-                
-                {/* Form Heading & Subtitle */}
-                <div className="space-y-2 border-b border-[#334155] pb-4">
-                  <h2 className="text-2xl font-bold text-[#F8FAFC]">
-                    Let's Connect
-                  </h2>
-                  <p className="text-sm text-[#94A3B8] leading-relaxed">
-                    If you have an opportunity, project, or would like to connect, feel free to send me a message. I'll get back to you as soon as possible.
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          
+          {/* Contact Cards */}
+          <div className="space-y-4">
+            
+            {/* Email */}
+            <a href={`mailto:${personalInfo.email}`} className="block group">
+              <Card className="p-5 flex items-center gap-4 hover:border-purple-300">
+                <div className="w-11 h-11 rounded-xl bg-purple-50 border border-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-100 transition-colors">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-mono text-slate-400 uppercase font-semibold">Direct Email</p>
+                  <p className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-purple-700 transition-colors truncate">
+                    {personalInfo.email}
                   </p>
                 </div>
-
-                {/* Success Message Feedback */}
-                {status.submitted ? (
-                  <div className="p-8 text-center space-y-4 bg-[#10B981]/10 rounded-2xl border border-[#10B981]/30">
-                    <div className="w-14 h-14 rounded-2xl bg-[#10B981]/20 text-[#10B981] flex items-center justify-center mx-auto border border-[#10B981]/30">
-                      <CheckCircle2 className="w-8 h-8" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-[#F8FAFC]">✅ Thank you!</h3>
-                    <p className="text-sm text-[#CBD5E1] max-w-sm mx-auto leading-relaxed">
-                      Your message has been sent successfully.<br />I'll get back to you as soon as possible.
-                    </p>
-                    <button
-                      type="button"
-                      onClick={() => setStatus({ submitted: false, loading: false })}
-                      className="text-xs font-mono text-[#22D3EE] hover:underline pt-2 inline-block font-semibold"
-                    >
-                      Send Another Message →
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    
-                    {/* Your Name */}
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-mono text-[#CBD5E1] font-medium uppercase">
-                        Your Name
-                      </label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#94A3B8]">
-                          <User className="w-4 h-4 text-[#22D3EE]" />
-                        </div>
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          value={formData.name}
-                          onChange={handleChange}
-                          placeholder="e.g. John Doe / Hiring Manager"
-                          className="w-full pl-10 pr-4 py-3 rounded-xl bg-[#111827] border border-[#334155] text-[#F8FAFC] text-sm focus:outline-none focus:border-[#22D3EE] transition-colors"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Email Address */}
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-mono text-[#CBD5E1] font-medium uppercase">
-                        Email Address
-                      </label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#94A3B8]">
-                          <Mail className="w-4 h-4 text-[#22D3EE]" />
-                        </div>
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          value={formData.email}
-                          onChange={handleChange}
-                          placeholder="e.g. recruiter@company.com"
-                          className="w-full pl-10 pr-4 py-3 rounded-xl bg-[#111827] border border-[#334155] text-[#F8FAFC] text-sm focus:outline-none focus:border-[#22D3EE] transition-colors"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Subject */}
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-mono text-[#CBD5E1] font-medium uppercase">
-                        Subject
-                      </label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#94A3B8]">
-                          <Tag className="w-4 h-4 text-[#22D3EE]" />
-                        </div>
-                        <input
-                          type="text"
-                          name="subject"
-                          value={formData.subject}
-                          onChange={handleChange}
-                          placeholder="e.g. Software Engineering Opportunity"
-                          className="w-full pl-10 pr-4 py-3 rounded-xl bg-[#111827] border border-[#334155] text-[#F8FAFC] text-sm focus:outline-none focus:border-[#22D3EE] transition-colors"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Message */}
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-mono text-[#CBD5E1] font-medium uppercase">
-                        Message
-                      </label>
-                      <div className="relative">
-                        <div className="absolute top-3 left-3.5 pointer-events-none text-[#94A3B8]">
-                          <FileText className="w-4 h-4 text-[#22D3EE]" />
-                        </div>
-                        <textarea
-                          name="message"
-                          required
-                          rows={4}
-                          value={formData.message}
-                          onChange={handleChange}
-                          placeholder="Write your message here..."
-                          className="w-full pl-10 pr-4 py-3 rounded-xl bg-[#111827] border border-[#334155] text-[#F8FAFC] text-sm focus:outline-none focus:border-[#22D3EE] transition-colors resize-none"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Submit Button */}
-                    <button
-                      type="submit"
-                      disabled={status.loading}
-                      className="w-full h-[52px] rounded-xl bg-[#22D3EE] hover:bg-[#06B6D4] text-[#0B1120] font-bold text-sm font-sans flex items-center justify-center gap-2 shadow-lg transition-all duration-300"
-                    >
-                      <Send className="w-4 h-4 text-[#0B1120]" />
-                      {status.loading ? 'Sending Message...' : 'Send Message'}
-                    </button>
-
-                  </form>
-                )}
-
               </Card>
+            </a>
 
-            </div>
+            {/* LinkedIn */}
+            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="block group">
+              <Card className="p-5 flex items-center gap-4 hover:border-purple-300">
+                <div className="w-11 h-11 rounded-xl bg-purple-50 border border-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-100 transition-colors">
+                  <LinkedinIcon className="w-5 h-5 text-purple-700" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-mono text-slate-400 uppercase font-semibold">LinkedIn Profile</p>
+                  <p className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-purple-700 transition-colors truncate">
+                    linkedin.com/in/naganath-dharwadkar
+                  </p>
+                </div>
+              </Card>
+            </a>
+
+            {/* GitHub */}
+            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="block group">
+              <Card className="p-5 flex items-center gap-4 hover:border-purple-300">
+                <div className="w-11 h-11 rounded-xl bg-slate-100 border border-slate-200 text-slate-800 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-50 group-hover:text-purple-700 transition-colors">
+                  <GithubIcon className="w-5 h-5" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-mono text-slate-400 uppercase font-semibold">GitHub Profile</p>
+                  <p className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-purple-700 transition-colors truncate">
+                    github.com/naganath-dharwadkar
+                  </p>
+                </div>
+              </Card>
+            </a>
+
+            {/* Location */}
+            <Card className="p-5 flex items-center justify-between gap-4">
+              <div className="flex items-center gap-4 min-w-0">
+                <div className="w-11 h-11 rounded-xl bg-purple-50 border border-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-mono text-slate-400 uppercase font-semibold">Location</p>
+                  <p className="text-sm font-bold text-slate-900 truncate">
+                    {personalInfo.locationShort}
+                  </p>
+                </div>
+              </div>
+              <Badge variant="emerald" className="flex-shrink-0 text-xs">
+                Open to Relocation
+              </Badge>
+            </Card>
+
           </div>
-        </section>
+
+          {/* Contact Form */}
+          <Card className="p-6 sm:p-8 space-y-6">
+            <div className="space-y-1 border-b border-slate-100 pb-3">
+              <h2 className="text-lg font-bold text-slate-900">Send a Message</h2>
+              <p className="text-xs text-slate-500 font-mono">
+                Direct message form for recruiters, project discussions, or inquiries.
+              </p>
+            </div>
+
+            {status.submitted ? (
+              <div className="p-6 text-center space-y-3 bg-emerald-50 rounded-xl border border-emerald-200">
+                <CheckCircle2 className="w-8 h-8 text-emerald-600 mx-auto" />
+                <h3 className="text-base font-bold text-slate-900">Thank you! Message Sent</h3>
+                <p className="text-xs text-slate-600">
+                  I will review your message and reply promptly.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setStatus({ submitted: false, loading: false })}
+                  className="text-xs font-mono text-purple-600 hover:underline pt-2 font-semibold"
+                >
+                  Send Another Message →
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4 text-xs font-sans">
+                
+                <div className="space-y-1">
+                  <label className="text-xs font-mono font-semibold text-slate-600 uppercase">Your Name</label>
+                  <div className="relative">
+                    <User className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="John Doe / Recruiter Name"
+                      className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:outline-none focus:border-purple-600 transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs font-mono font-semibold text-slate-600 uppercase">Email Address</label>
+                  <div className="relative">
+                    <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="recruiter@company.com"
+                      className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:outline-none focus:border-purple-600 transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs font-mono font-semibold text-slate-600 uppercase">Subject</label>
+                  <div className="relative">
+                    <Tag className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                    <input
+                      type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="Software Developer Opportunity"
+                      className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:outline-none focus:border-purple-600 transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs font-mono font-semibold text-slate-600 uppercase">Message</label>
+                  <div className="relative">
+                    <FileText className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                    <textarea
+                      name="message"
+                      required
+                      rows={4}
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Write your message..."
+                      className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:outline-none focus:border-purple-600 transition-colors resize-none"
+                    />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={status.loading}
+                  className="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-xs transition-colors"
+                >
+                  <Send className="w-4 h-4" />
+                  {status.loading ? 'Sending...' : 'Send Message'}
+                </button>
+
+              </form>
+            )}
+
+          </Card>
+
+        </div>
 
       </div>
     </PageLayout>

@@ -1,61 +1,86 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ExternalLink, ArrowRight } from 'lucide-react';
+import { ExternalLink, ArrowRight, Code2 } from 'lucide-react';
 import { GithubIcon } from '../common/Icons';
-import { Card } from '../common/Card';
 import { Badge } from '../common/Badge';
 
 export function ProjectCard({ project }) {
-  const { id, name, description, image, techStack, liveDemo, github } = project;
+  const { id, name, category, description, image, techStack, liveDemo, github } = project;
+  const [imgFailed, setImgFailed] = useState(false);
 
   return (
-    <Card className="flex flex-col h-full bg-[#1E293B] border-[#334155] hover:border-[#22D3EE]/40 transition-all duration-300 rounded-2xl overflow-hidden shadow-xl group">
+    <div className="flex flex-col h-full bg-white border border-slate-200/80 hover:border-purple-300/90 transition-all duration-300 rounded-2xl overflow-hidden shadow-xs hover:shadow-md group">
       
-      {/* Single Clean Project Thumbnail Image */}
-      <div className="relative aspect-video w-full overflow-hidden bg-[#111827]">
-        <img
-          src={image}
-          alt={name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120]/70 via-transparent to-transparent pointer-events-none" />
+      {/* Thumbnail Image Container */}
+      <div className="relative aspect-video w-full overflow-hidden bg-slate-900">
+        {imgFailed ? (
+          <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 text-center space-y-2 text-white">
+            <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300">
+              <Code2 className="w-6 h-6" />
+            </div>
+            <h4 className="text-base font-bold tracking-tight">{name}</h4>
+          </div>
+        ) : (
+          <img
+            src={image}
+            alt={name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+            onError={() => setImgFailed(true)}
+          />
+        )}
+
+        {/* Category Overlay Badge */}
+        {category && (
+          <div className="absolute top-3 left-3 z-10">
+            <Badge variant="purple" className="shadow-xs bg-white/95 backdrop-blur-xs text-purple-700 font-semibold border-purple-200">
+              {category}
+            </Badge>
+          </div>
+        )}
+
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
       </div>
 
-      {/* Card Content Body */}
+      {/* Card Content */}
       <div className="p-6 flex flex-col flex-grow space-y-4">
         
-        {/* Project Name */}
-        <h3 className="text-xl font-bold text-[#F8FAFC] tracking-tight group-hover:text-[#22D3EE] transition-colors">
+        {/* Project Title */}
+        <h3 className="text-lg font-extrabold text-slate-900 tracking-tight group-hover:text-purple-600 transition-colors">
           {name}
         </h3>
 
-        {/* One-Line Description */}
-        <p className="text-sm text-[#94A3B8] leading-relaxed font-sans line-clamp-2">
+        {/* Description */}
+        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans line-clamp-2">
           {description}
         </p>
 
-        {/* Technology Stack Badges */}
+        {/* Tech Badges */}
         <div className="flex flex-wrap gap-1.5 pt-1 mt-auto">
-          {techStack.map((tech, idx) => (
-            <Badge key={idx} variant="cyan" className="text-[11px] font-mono font-medium py-0.5 px-2">
+          {techStack.slice(0, 5).map((tech, idx) => (
+            <Badge key={idx} variant="blue" className="text-[11px] font-mono py-0.5 px-2">
               {tech}
             </Badge>
           ))}
+          {techStack.length > 5 && (
+            <Badge variant="outline" className="text-[10px] font-mono py-0.5 px-1.5">
+              +{techStack.length - 5}
+            </Badge>
+          )}
         </div>
 
-        {/* Action Buttons (GitHub, Live Demo, View Details) */}
-        <div className="pt-4 border-t border-[#334155] flex flex-wrap items-center justify-between gap-2 mt-auto">
+        {/* Action Buttons */}
+        <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 mt-auto">
           <div className="flex items-center gap-2">
             {github && (
               <a
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#111827] border border-[#334155] text-xs font-mono text-[#F8FAFC] hover:text-[#22D3EE] hover:border-[#22D3EE] transition-colors"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 text-xs font-mono font-medium text-slate-700 hover:text-slate-900 transition-colors"
                 title="GitHub Repository"
               >
-                <GithubIcon className="w-3.5 h-3.5 text-[#22D3EE]" /> GitHub
+                <GithubIcon className="w-3.5 h-3.5" /> GitHub
               </a>
             )}
             {liveDemo && (
@@ -63,24 +88,24 @@ export function ProjectCard({ project }) {
                 href={liveDemo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#22D3EE]/10 border border-[#22D3EE]/30 text-xs font-mono text-[#22D3EE] hover:bg-[#22D3EE]/20 transition-colors"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-purple-50 hover:bg-purple-100 border border-purple-200/80 text-xs font-mono font-medium text-purple-700 transition-colors"
                 title="Live Demo"
               >
-                <ExternalLink className="w-3.5 h-3.5 text-[#22D3EE]" /> Live Demo
+                <ExternalLink className="w-3.5 h-3.5 text-purple-600" /> Demo
               </a>
             )}
           </div>
 
           <Link
             to={`/projects/${id}`}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#22D3EE] text-[#0B1120] text-xs font-semibold hover:bg-[#06B6D4] transition-colors ml-auto"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold shadow-2xs transition-colors ml-auto"
           >
-            View Details <ArrowRight className="w-3.5 h-3.5" />
+            Details <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
       </div>
 
-    </Card>
+    </div>
   );
 }

@@ -4,8 +4,8 @@ import { ThemeProvider } from './context/ThemeContext';
 import { LoadingScreen } from './components/common/LoadingScreen';
 
 // Pages
-import { Home } from './pages/Home';
-import { Skills } from './pages/Skills';
+import { Login } from './pages/Login';
+import { About } from './pages/About';
 import { Projects } from './pages/Projects';
 import { ProjectDetails } from './pages/ProjectDetails';
 import { Experience } from './pages/Experience';
@@ -23,9 +23,9 @@ export default function App() {
 
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<Navigate to="/" replace />} />
-          <Route path="/skills" element={<Skills />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:id" element={<ProjectDetails />} />
           <Route path="/experience" element={<Experience />} />
@@ -38,4 +38,3 @@ export default function App() {
     </ThemeProvider>
   );
 }
-

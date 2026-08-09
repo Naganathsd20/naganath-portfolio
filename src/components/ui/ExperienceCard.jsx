@@ -32,15 +32,12 @@ export function ExperienceCard({ exp }) {
     certificateImage
   } = exp;
 
-  const [activeDoc, setActiveDoc] = useState(null); // { title, image, pdf }
+  const [activeDoc, setActiveDoc] = useState(null);
   const [zoomLevel, setZoomLevel] = useState(1);
 
-  // ESC key listener to close modal
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        closeModal();
-      }
+      if (e.key === 'Escape') closeModal();
     };
     if (activeDoc) {
       window.addEventListener('keydown', handleKeyDown);
@@ -57,56 +54,48 @@ export function ExperienceCard({ exp }) {
     setZoomLevel(1);
   };
 
-  const zoomIn = () => {
-    setZoomLevel((prev) => Math.min(prev + 0.25, 2.5));
-  };
-
-  const zoomOut = () => {
-    setZoomLevel((prev) => Math.max(prev - 0.25, 0.6));
-  };
-
-  const resetZoom = () => {
-    setZoomLevel(1);
-  };
+  const zoomIn = () => setZoomLevel((prev) => Math.min(prev + 0.25, 2.5));
+  const zoomOut = () => setZoomLevel((prev) => Math.max(prev - 0.25, 0.6));
+  const resetZoom = () => setZoomLevel(1);
 
   return (
     <>
-      <Card className="p-6 sm:p-8 bg-[#243447] border-[#334155] hover:border-[#22D3EE]/40 transition-all duration-300 rounded-[18px] shadow-xl space-y-6">
+      <Card className="p-6 sm:p-8 space-y-6">
         
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#334155] pb-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-6">
           <div className="space-y-1.5">
             <div className="flex flex-wrap items-center gap-3">
-              <h3 className="text-2xl font-extrabold text-[#FFFFFF] tracking-tight">
+              <h3 className="text-xl font-extrabold text-slate-900 tracking-tight">
                 {company}
               </h3>
-              <Badge variant="cyan">
+              <Badge variant="purple">
                 {workMode}
               </Badge>
             </div>
 
-            <p className="text-base font-semibold text-[#CBD5E1] font-mono">
+            <p className="text-sm font-semibold text-purple-700 font-mono">
               {role}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[#CBD5E1] pt-1">
+            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-500 pt-1">
               <span className="inline-flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#22D3EE]" /> {location}
+                <MapPin className="w-3.5 h-3.5 text-purple-600" /> {location}
               </span>
               <span>•</span>
-              <span className="inline-flex items-center gap-1.5 text-[#CBD5E1]">
-                <Calendar className="w-3.5 h-3.5 text-[#22D3EE]" /> {duration}
+              <span className="inline-flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-purple-600" /> {duration}
               </span>
             </div>
           </div>
         </div>
 
-        {/* About the Internship */}
+        {/* About */}
         <div className="space-y-2">
-          <h4 className="text-xs font-mono text-[#CBD5E1] uppercase tracking-wider font-semibold">
+          <h4 className="text-xs font-mono text-slate-400 uppercase tracking-wider font-semibold">
             About the Internship
           </h4>
-          <p className="text-[18px] text-[#E2E8F0] font-medium leading-[1.8] tracking-[0.2px]">
+          <p className="text-sm text-slate-700 leading-relaxed font-sans">
             {about}
           </p>
         </div>
@@ -114,13 +103,13 @@ export function ExperienceCard({ exp }) {
         {/* What I Worked On */}
         {whatIWorkedOn && whatIWorkedOn.length > 0 && (
           <div className="space-y-3">
-            <h4 className="text-xs font-mono text-[#CBD5E1] uppercase tracking-wider font-semibold">
+            <h4 className="text-xs font-mono text-slate-400 uppercase tracking-wider font-semibold">
               What I Worked On
             </h4>
-            <ul className="space-y-2.5 text-[16px] text-[#E2E8F0] font-medium">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-slate-700 font-sans">
               {whatIWorkedOn.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#22D3EE] flex-shrink-0 mt-1" />
+                <li key={idx} className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
                   <span className="leading-relaxed">{item}</span>
                 </li>
               ))}
@@ -131,12 +120,12 @@ export function ExperienceCard({ exp }) {
         {/* Skills Gained */}
         {skillsGained && skillsGained.length > 0 && (
           <div className="space-y-2.5">
-            <h4 className="text-xs font-mono text-[#CBD5E1] uppercase tracking-wider font-semibold">
+            <h4 className="text-xs font-mono text-slate-400 uppercase tracking-wider font-semibold">
               Skills Gained
             </h4>
             <div className="flex flex-wrap gap-2">
               {skillsGained.map((skill, idx) => (
-                <Badge key={idx} variant="cyan" className="text-xs font-mono py-1 px-3">
+                <Badge key={idx} variant="blue" className="text-xs font-mono py-0.5 px-2.5">
                   {skill}
                 </Badge>
               ))}
@@ -144,21 +133,21 @@ export function ExperienceCard({ exp }) {
           </div>
         )}
 
-        {/* Documents Section (Only 2 Buttons) */}
-        <div className="pt-4 border-t border-[#334155] flex flex-wrap items-center gap-4">
+        {/* Document Action Buttons */}
+        <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-3">
           {offerLetterUrl && (
             <Button
-              variant="outline"
+              variant="secondary"
               size="md"
               icon={FileText}
               onClick={() => setActiveDoc({
-                title: 'Internship Offer Letter — Codec Technologies',
+                title: `Offer Letter — ${company}`,
                 image: offerLetterImage,
                 pdf: offerLetterUrl,
-                downloadName: 'Codec_Technologies_Offer_Letter.pdf'
+                downloadName: `${company}_Offer_Letter.pdf`
               })}
             >
-              📄 View Offer Letter
+              View Offer Letter
             </Button>
           )}
 
@@ -168,139 +157,65 @@ export function ExperienceCard({ exp }) {
               size="md"
               icon={Award}
               onClick={() => setActiveDoc({
-                title: 'Internship Completion Certificate — Codec Technologies',
+                title: `Completion Certificate — ${company}`,
                 image: certificateImage,
                 pdf: certificateUrl,
-                downloadName: 'Codec_Technologies_Internship_Certificate.pdf'
+                downloadName: `${company}_Certificate.pdf`
               })}
             >
-              🎓 View Internship Completion Certificate
+              View Internship Certificate
             </Button>
           )}
         </div>
 
       </Card>
 
-      {/* Interactive Responsive Document Lightbox / Modal */}
+      {/* Modal Lightbox */}
       <AnimatePresence>
         {activeDoc && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-            
-            {/* Dark Blurred Backdrop */}
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closeModal}
-              className="fixed inset-0 bg-[#0B1120]/85 backdrop-blur-md cursor-pointer"
+              className="fixed inset-0 bg-slate-900/50 backdrop-blur-xs cursor-pointer"
             />
 
-            {/* Modal Container */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 15 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-              className="relative w-full max-w-4xl bg-[#1E293B] border border-[#22D3EE]/40 rounded-2xl p-4 sm:p-6 shadow-2xl shadow-[#22D3EE]/10 z-10 flex flex-col max-h-[92vh] overflow-hidden"
+              className="relative w-full max-w-4xl bg-white border border-slate-200 rounded-2xl p-6 shadow-2xl z-10 flex flex-col max-h-[90vh] overflow-hidden"
             >
-              
-              {/* Modal Top Controls Header */}
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#334155] pb-3 flex-shrink-0">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                <h3 className="text-base font-bold text-slate-900 font-sans">{activeDoc.title}</h3>
                 <div className="flex items-center gap-2">
-                  <FileText className="w-5 h-5 text-[#22D3EE]" />
-                  <h3 className="text-base sm:text-lg font-bold text-[#FFFFFF] tracking-tight">
-                    {activeDoc.title}
-                  </h3>
-                </div>
-
-                {/* Zoom Controls & Close Button */}
-                <div className="flex items-center gap-2">
-                  
-                  <div className="flex items-center gap-1 bg-[#111827] border border-[#334155] rounded-xl p-1">
-                    <button
-                      onClick={zoomOut}
-                      className="p-1.5 rounded-lg text-[#CBD5E1] hover:text-[#22D3EE] hover:bg-[#334155] transition-colors"
-                      title="Zoom Out (-)"
-                      aria-label="Zoom Out"
-                    >
-                      <ZoomOut className="w-4 h-4" />
-                    </button>
-
-                    <span className="text-xs font-mono text-[#22D3EE] px-1 font-semibold min-w-[40px] text-center">
-                      {Math.round(zoomLevel * 100)}%
-                    </span>
-
-                    <button
-                      onClick={zoomIn}
-                      className="p-1.5 rounded-lg text-[#CBD5E1] hover:text-[#22D3EE] hover:bg-[#334155] transition-colors"
-                      title="Zoom In (+)"
-                      aria-label="Zoom In"
-                    >
-                      <ZoomIn className="w-4 h-4" />
-                    </button>
-
-                    <button
-                      onClick={resetZoom}
-                      className="p-1.5 rounded-lg text-[#CBD5E1] hover:text-[#22D3EE] hover:bg-[#334155] transition-colors"
-                      title="Reset Zoom"
-                      aria-label="Reset Zoom"
-                    >
-                      <RotateCcw className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-
-                  <button
-                    onClick={closeModal}
-                    className="p-2 rounded-xl bg-[#111827] border border-[#334155] text-[#94A3B8] hover:text-[#FFFFFF] hover:border-[#22D3EE] transition-colors"
-                    aria-label="Close modal"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
+                  <button onClick={zoomOut} className="p-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-purple-100"><ZoomOut className="w-4 h-4" /></button>
+                  <span className="text-xs font-mono font-semibold">{Math.round(zoomLevel * 100)}%</span>
+                  <button onClick={zoomIn} className="p-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-purple-100"><ZoomIn className="w-4 h-4" /></button>
+                  <button onClick={closeModal} className="p-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 ml-2"><X className="w-4 h-4" /></button>
                 </div>
               </div>
 
-              {/* Scrollable & Zoomable Document Container */}
-              <div className="flex-1 overflow-auto rounded-xl border border-[#334155] bg-[#111827] flex items-center justify-center p-4 min-h-[300px] my-3">
-                <div className="transition-transform duration-200 ease-out origin-top flex justify-center w-full">
-                  <img
-                    src={activeDoc.image}
-                    alt={activeDoc.title}
-                    style={{ transform: `scale(${zoomLevel})` }}
-                    className="max-h-[70vh] w-auto object-contain rounded-lg shadow-lg transition-transform duration-200"
-                  />
-                </div>
+              <div className="flex-1 overflow-auto rounded-xl border border-slate-200 bg-slate-50 p-4 my-4 flex justify-center items-center">
+                <img
+                  src={activeDoc.image}
+                  alt={activeDoc.title}
+                  style={{ transform: `scale(${zoomLevel})` }}
+                  className="max-h-[65vh] w-auto object-contain rounded-lg shadow-md transition-transform"
+                />
               </div>
 
-              {/* Modal Footer */}
-              <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#334155] flex-shrink-0">
-                <p className="text-xs font-mono text-[#94A3B8]">
-                  Tip: Use controls above to zoom, or scroll to read document.
-                </p>
-
-                <div className="flex items-center gap-3">
-                  <Button
-                    variant="primary"
-                    size="sm"
-                    href={activeDoc.pdf}
-                    download={activeDoc.downloadName}
-                    target="_blank"
-                    icon={Download}
-                  >
-                    Download Document (PDF)
-                  </Button>
-
-                  <Button
-                    variant="secondary"
-                    size="sm"
-                    onClick={closeModal}
-                  >
-                    Close
-                  </Button>
-                </div>
+              <div className="flex items-center justify-between border-t border-slate-100 pt-3">
+                <Button variant="primary" size="sm" href={activeDoc.pdf} download={activeDoc.downloadName} target="_blank" icon={Download}>
+                  Download Document
+                </Button>
+                <Button variant="secondary" size="sm" onClick={closeModal}>
+                  Close
+                </Button>
               </div>
-
             </motion.div>
-
           </div>
         )}
       </AnimatePresence>

@@ -9,72 +9,71 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-[#0B1120] border-t border-[#334155] text-[#94A3B8] pt-16 pb-12">
+    <footer className="w-full bg-white border-t border-slate-200 text-slate-600 pt-12 pb-8 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-[#334155]">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-slate-100">
           
-          {/* Col 1: Brand & Student Bio */}
-          <div className="md:col-span-2 space-y-4">
+          {/* Col 1: Brand */}
+          <div className="md:col-span-2 space-y-3">
             <div className="flex items-center gap-2.5">
-              <div className="relative w-8 h-8 rounded-full overflow-hidden border border-[#334155] flex-shrink-0 bg-[#111827]">
-                <img
-                  src={personalInfo.profileImage}
-                  alt={personalInfo.name}
-                  className="w-full h-full object-cover object-top"
-                />
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white font-bold text-xs shadow-xs">
+                ND
               </div>
-              <span className="font-bold text-xl text-[#F8FAFC] tracking-tight">
-                Naganath S Dharwadkar
+              <span className="font-extrabold text-base text-slate-900 tracking-tight uppercase font-mono">
+                {personalInfo.name}
               </span>
             </div>
-            <p className="text-sm text-[#CBD5E1] max-w-md leading-relaxed">
-              Final Year Computer Science & Engineering Student passionate about MERN stack development, Java, and building clean web applications.
+            <p className="text-xs sm:text-sm text-slate-600 max-w-md leading-relaxed">
+              Final Year Computer Science & Engineering Student at Sahyadri College. Building full-stack web applications and AI-powered platforms.
             </p>
-            <div className="pt-2">
-              <Badge variant="success" pulse>
-                {personalInfo.availability}
+            <div className="pt-1">
+              <Badge variant="emerald" pulse className="text-xs">
+                Open to Software Developer Roles
               </Badge>
             </div>
           </div>
 
           {/* Col 2: Navigation Links */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-semibold text-[#F8FAFC] uppercase tracking-wider font-mono">
-              Navigation
+          <div className="space-y-2.5">
+            <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider font-mono">
+              Platform Links
             </h4>
-            <ul className="space-y-2 text-sm text-[#CBD5E1]">
+            <ul className="space-y-1.5 text-xs text-slate-600">
               <li>
-                <Link to="/" className="hover:text-[#22D3EE] transition-colors">Home</Link>
+                <Link to="/about" className="hover:text-purple-600 transition-colors">About Me</Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-[#22D3EE] transition-colors">About</Link>
+                <Link to="/projects" className="hover:text-purple-600 transition-colors">Featured Projects</Link>
               </li>
               <li>
-                <Link to="/skills" className="hover:text-[#22D3EE] transition-colors">Technical Skills</Link>
+                <Link to="/experience" className="hover:text-purple-600 transition-colors">Internship Experience</Link>
               </li>
               <li>
-                <Link to="/projects" className="hover:text-[#22D3EE] transition-colors">Projects</Link>
+                <Link to="/achievements" className="hover:text-purple-600 transition-colors">Achievements & Certifications</Link>
               </li>
               <li>
-                <Link to="/experience" className="hover:text-[#22D3EE] transition-colors">Experience</Link>
+                <Link to="/resume" className="hover:text-purple-600 transition-colors">Official Resume</Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-purple-600 transition-colors">Contact</Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Social & Contact Links */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-semibold text-[#F8FAFC] uppercase tracking-wider font-mono">
+          {/* Col 3: Social & Contact */}
+          <div className="space-y-2.5">
+            <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider font-mono">
               Connect
             </h4>
-            <ul className="space-y-2 text-sm text-[#CBD5E1]">
+            <ul className="space-y-2 text-xs text-slate-600">
               <li>
                 <a
                   href={personalInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 hover:text-[#22D3EE] transition-colors"
+                  className="inline-flex items-center gap-1.5 hover:text-purple-600 transition-colors font-mono"
                 >
-                  <GithubIcon className="w-4 h-4 text-[#22D3EE]" /> GitHub <ArrowUpRight className="w-3 h-3 text-[#94A3B8]" />
+                  <GithubIcon className="w-3.5 h-3.5 text-purple-600" /> GitHub Profile <ArrowUpRight className="w-3 h-3 text-slate-400" />
                 </a>
               </li>
               <li>
@@ -82,32 +81,29 @@ export function Footer() {
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 hover:text-[#22D3EE] transition-colors"
+                  className="inline-flex items-center gap-1.5 hover:text-purple-600 transition-colors font-mono"
                 >
-                  <LinkedinIcon className="w-4 h-4 text-[#22D3EE]" /> LinkedIn <ArrowUpRight className="w-3 h-3 text-[#94A3B8]" />
+                  <LinkedinIcon className="w-3.5 h-3.5 text-purple-600" /> LinkedIn Profile <ArrowUpRight className="w-3 h-3 text-slate-400" />
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="inline-flex items-center gap-1.5 hover:text-[#22D3EE] transition-colors"
+                  className="inline-flex items-center gap-1.5 hover:text-purple-600 transition-colors font-mono"
                 >
-                  <Mail className="w-4 h-4 text-[#22D3EE]" /> Email Me <ArrowUpRight className="w-3 h-3 text-[#94A3B8]" />
+                  <Mail className="w-3.5 h-3.5 text-purple-600" /> {personalInfo.email}
                 </a>
               </li>
             </ul>
           </div>
+
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#94A3B8] gap-4 font-mono">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3 font-mono">
           <p>© {currentYear} Naganath S Dharwadkar. All rights reserved.</p>
-          <div className="flex items-center gap-2">
-            <span>Built with React + Vite + Tailwind CSS</span>
-          </div>
+          <span>Personal Developer Platform</span>
         </div>
       </div>
     </footer>
   );
 }
-

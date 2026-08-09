@@ -1,152 +1,140 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, Download, Sparkles } from 'lucide-react';
-import { Button } from '../common/Button';
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Download, Menu, X, ChevronRight } from 'lucide-react';
 import { personalInfo } from '../../data/portfolioData';
 
-const navItems = [
-  { name: 'Home', path: '/' },
-  { name: 'Skills', path: '/skills' },
-  { name: 'Projects', path: '/projects' },
-  { name: 'Experience', path: '/experience' },
-  { name: 'Certifications', path: '/achievements' },
-  { name: 'Resume', path: '/resume' },
-  { name: 'Contact', path: '/contact' }
-];
-
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Close mobile drawer on route change
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location.pathname]);
+  const navLinks = [
+    { name: 'About', path: '/about' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Experience', path: '/experience' },
+    { name: 'Achievements', path: '/achievements' },
+    { name: 'Resume', path: '/resume' },
+    { name: 'Contact', path: '/contact' },
+  ];
 
   return (
-    <header
-      className={`sticky top-0 z-40 w-full transition-all duration-300 ${
-        scrolled
-          ? 'bg-[#0B1120]/85 backdrop-blur-md border-b border-[#334155] shadow-md'
-          : 'bg-transparent border-b border-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          
-          {/* Logo with Professional Profile Photo */}
-          <NavLink
-            to="/"
-            className="flex items-center gap-2.5 group focus:outline-none"
-          >
-            <div className="relative w-9 h-9 rounded-full overflow-hidden border border-[#334155] group-hover:border-[#22D3EE] transition-colors flex-shrink-0 bg-[#111827]">
-              <img
-                src={personalInfo.profileImage}
-                alt={personalInfo.name}
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-base sm:text-lg text-[#F8FAFC] tracking-tight font-sans">
-                Naganath S Dharwadkar
-              </span>
-              <span className="text-[10px] font-mono text-[#22D3EE] font-medium">Final Year CS Student</span>
-            </div>
-          </NavLink>
-
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 bg-[#111827] p-1.5 rounded-full border border-[#334155]">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={({ isActive }) =>
-                  `px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
-                    isActive
-                      ? 'bg-[#22D3EE] text-[#0B1120] font-semibold shadow-md shadow-[#22D3EE]/20'
-                      : 'text-[#94A3B8] hover:text-[#F8FAFC]'
-                  }`
-                }
-              >
-                {item.name}
-              </NavLink>
-            ))}
-          </nav>
-
-          {/* Right Action Controls */}
-          <div className="flex items-center gap-3">
-            {/* Contact CTA button */}
-            <div className="hidden sm:block">
-              <Button
-                variant="primary"
-                size="sm"
-                href="/contact"
-                icon={Sparkles}
-              >
-                Contact Me
-              </Button>
-            </div>
-
-            {/* Mobile Hamburger Toggle */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 rounded-xl border border-[#334155] text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#111827]"
-              aria-label="Toggle Navigation Menu"
-            >
-              {isOpen ? <X className="w-5 h-5 text-[#22D3EE]" /> : <Menu className="w-5 h-5 text-[#22D3EE]" />}
-            </button>
+    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-2xs antialiased font-sans">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        
+        {/* Brand Logo & Name */}
+        <Link to="/about" className="flex items-center gap-3 group">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-pink-500 flex items-center justify-center text-white font-bold text-sm shadow-xs group-hover:scale-105 transition-transform duration-200">
+            ND
           </div>
+          <div>
+            <div className="font-extrabold text-sm sm:text-base text-slate-900 tracking-tight leading-none group-hover:text-purple-600 transition-colors uppercase font-mono">
+              {personalInfo.name}
+            </div>
+            <div className="text-[10px] font-mono text-purple-700 font-semibold mt-0.5">
+              Developer Platform
+            </div>
+          </div>
+        </Link>
+
+        {/* Desktop Navigation Links */}
+        <nav className="hidden md:flex items-center gap-1 bg-slate-50 border border-slate-200/80 p-1 rounded-xl">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path || location.pathname.startsWith(`${link.path}/`);
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold font-sans transition-all duration-200 ${
+                  isActive
+                    ? 'bg-purple-600 text-white font-bold shadow-2xs'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Desktop Right CTA */}
+        <div className="hidden md:flex items-center gap-3">
+          <a
+            href={personalInfo.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold transition-all shadow-xs hover:shadow-sm"
+          >
+            <Download className="w-3.5 h-3.5" /> Download Resume
+          </a>
         </div>
+
+        {/* Mobile Hamburger Button */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="md:hidden p-2 rounded-xl text-slate-700 hover:text-purple-600 hover:bg-purple-50 transition-colors border border-slate-200"
+          aria-label="Toggle Navigation Menu"
+        >
+          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+
       </div>
 
-      {/* Mobile Menu Drawer */}
-      {isOpen && (
-        <div className="lg:hidden bg-[#0B1120]/95 border-b border-[#334155] backdrop-blur-xl px-4 pt-3 pb-6 shadow-2xl transition-all">
-          <div className="flex flex-col space-y-1">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={({ isActive }) =>
-                  `px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-                    isActive
-                      ? 'bg-[#22D3EE]/10 text-[#22D3EE] border border-[#22D3EE]/20 font-semibold'
-                      : 'text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#111827]'
-                  }`
-                }
+      {/* Mobile Drawer Menu */}
+      {mobileOpen && (
+        <div className="md:hidden fixed inset-0 z-50 flex">
+          <div
+            className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs transition-opacity"
+            onClick={() => setMobileOpen(false)}
+          />
+
+          <div className="relative flex-1 w-full max-w-xs bg-white h-full flex flex-col z-10 shadow-2xl">
+            <div className="p-4 border-b border-slate-200 flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white font-bold text-xs shadow-xs">
+                  ND
+                </div>
+                <div>
+                  <div className="font-bold text-xs text-slate-900">{personalInfo.name}</div>
+                  <div className="text-[10px] font-mono text-purple-600">Developer Platform</div>
+                </div>
+              </div>
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="p-1 rounded-lg text-slate-500 hover:bg-slate-100"
               >
-                {item.name}
-              </NavLink>
-            ))}
-            <div className="pt-4 mt-2 border-t border-[#334155] flex flex-col gap-2">
-              <Button
-                variant="primary"
-                size="md"
-                href="/contact"
-                className="w-full"
-                icon={Sparkles}
-              >
-                Contact Me
-              </Button>
-              <Button
-                variant="outline"
-                size="md"
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path || location.pathname.startsWith(`${link.path}/`);
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setMobileOpen(false)}
+                    className={`flex items-center justify-between px-4 py-3 rounded-xl text-xs font-semibold transition-all ${
+                      isActive
+                        ? 'bg-purple-50 text-purple-700 font-bold border border-purple-200'
+                        : 'text-slate-700 hover:bg-slate-50'
+                    }`}
+                  >
+                    <span>{link.name}</span>
+                    {isActive && <ChevronRight className="w-4 h-4 text-purple-600" />}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            <div className="p-4 border-t border-slate-200 bg-slate-50">
+              <a
                 href={personalInfo.resumeUrl}
                 target="_blank"
-                className="w-full"
-                icon={Download}
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full py-2.5 px-3 rounded-xl bg-purple-600 text-white text-xs font-semibold shadow-xs"
               >
-                Download Resume
-              </Button>
+                <Download className="w-4 h-4" /> Download Resume
+              </a>
             </div>
           </div>
         </div>
@@ -154,4 +142,3 @@ export function Navbar() {
     </header>
   );
 }
-

@@ -5,8 +5,8 @@ export function Card({ children, className, hoverEffect = true, ...props }) {
   return (
     <div
       className={cn(
-        "rounded-[18px] border bg-[#243447] border-[#334155] p-6 shadow-md transition-all duration-300",
-        hoverEffect && "hover:border-[#22D3EE]/40 hover:shadow-lg hover:-translate-y-0.5",
+        "rounded-2xl border bg-white border-slate-200/80 p-6 shadow-sm transition-all duration-300 text-slate-900",
+        hoverEffect && "hover:border-purple-300/80 hover:shadow-md hover:-translate-y-0.5",
         className
       )}
       {...props}
@@ -15,4 +15,3 @@ export function Card({ children, className, hoverEffect = true, ...props }) {
     </div>
   );
 }
-

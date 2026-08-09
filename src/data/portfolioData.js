@@ -21,7 +21,7 @@ export const personalInfo = {
   github: "https://github.com/naganath-dharwadkar",
   linkedin: "https://linkedin.com/in/naganath-dharwadkar",
   resumeUrl: "/Naganath_S_Dharwadkar_Resume.pdf",
-  resumeImage: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=1200&q=80",
+  resumeImage: "/Naganath_S_Dharwadkar_Resume.png",
   
   bio: "I am a final-year Computer Science & Engineering student at Sahyadri College of Engineering & Management. I am passionate about building full-stack web applications using the MERN stack and developing strong algorithmic solutions with Java.",
   
@@ -104,30 +104,206 @@ export const skills = {
 
 export const projects = [
   {
-    id: "eatzy-delivery-system",
-    name: "Eatzy Food Delivery App",
-    tagline: "Full Stack Food Ordering & Shopping Cart System",
+    id: "udyog-mitra",
+    name: "UdyogMitra",
+    tagline: "Full-Stack Job Portal Connecting Students & Recruiters",
     featured: true,
     category: "Full Stack MERN",
-    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80",
-    bannerImage: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1600&q=80",
-    description: "A responsive MERN stack web application for food ordering featuring persistent cart management, category filters, and simulated checkout.",
-    about: "Eatzy is a full-stack food ordering web application designed to solve common challenges faced by small food outlets in digitizing their daily ordering workflow. It was built using the MERN stack (MongoDB, Express.js, React.js, Node.js) to gain hands-on experience in structuring end-to-end web architectures. The portal features interactive menu filtering, persistent shopping cart management, user authentication with JWT tokens, and an automated checkout confirmation screen. Building Eatzy helped me master state synchronization across React components, design modular Express REST API routes, and implement secure MongoDB data schemas while focusing on responsive, mobile-first frontend design.",
-    techStack: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-    highlights: {
-      techStack: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-      authentication: "JWT Authentication & Password Hashing",
-      mainFeatures: ["User Login & Registration", "Shopping Cart", "Product Filtering", "Order Confirmation", "Responsive UI"],
-      database: "MongoDB with Mongoose Schemas",
-      restApi: "Express.js REST APIs"
-    },
-    liveDemo: "https://eatzy-platform-demo.vercel.app",
-    github: "https://github.com/naganath-dharwadkar/eatzy-delivery-platform",
+    image: "/udyogmitra-1.png",
+    bannerImage: "/udyogmitra-1.png",
+    description: "UdyogMitra is a full-stack job portal designed to connect students with recruiters through a single platform. It provides separate Student and Recruiter experiences with authentication, job discovery, applications, saved jobs, company management, profile management, and resume uploads.",
+    about: "UdyogMitra is a full-stack job portal designed to connect students with recruiters through a single platform. It provides separate Student and Recruiter experiences with authentication, job discovery, applications, saved jobs, company management, profile management, and resume uploads.\n\nBuilding UdyogMitra gave me practical experience in developing a complete MERN application, integrating REST APIs, managing application state with Redux Toolkit, implementing JWT authentication, handling file uploads with Cloudinary, and deploying a full-stack application.",
+    techStack: [
+      "MongoDB",
+      "Express.js",
+      "React.js",
+      "Node.js",
+      "Redux Toolkit",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "JWT Authentication",
+      "Cloudinary",
+      "Multer",
+      "Vercel",
+      "Render"
+    ],
+    liveDemo: "https://udyog-mitra.vercel.app/",
+    github: "https://github.com/Naganathsd20/udyog-mitra",
     screenshots: [
-      "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80"
+      "/udyogmitra-1.png",
+      "/udyogmitra-2.png",
+      "/udyogmitra-3.png"
+    ]
+  },
+  {
+    id: "smilesync-ai",
+    name: "SmileSync AI",
+    tagline: "Full-Stack Dental Appointment & AI Subscription Platform",
+    featured: true,
+    category: "Full-Stack / AI-Powered Healthcare Platform",
+    image: "/smilesync-1.png",
+    bannerImage: "/smilesync-1.png",
+    description: "SmileSync AI is a full-stack dental appointment and subscription platform featuring Clerk authentication, 3-step booking flow, admin dashboard, automated Resend emails, and Vapi AI voice agent.",
+    about: "SmileSync AI is a full-stack dental appointment and subscription platform built to simplify dental care management. Users can securely authenticate, explore dental services, select dentists, book appointments through a 3-step workflow, manage subscriptions, receive automated emails and invoices, and access an AI-powered voice agent through Vapi.",
+    techStack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "PostgreSQL",
+      "Prisma",
+      "Clerk",
+      "Vapi",
+      "Resend",
+      "TanStack Query",
+      "Tailwind CSS",
+      "shadcn/ui"
+    ],
+    keyFeatures: [
+      "Clerk authentication with Google, GitHub, and Email & Password",
+      "Email verification",
+      "3-step appointment booking flow",
+      "Dentist, service, and time selection",
+      "Appointment confirmation and management",
+      "Admin dashboard for managing appointments",
+      "AI voice agent powered by Vapi",
+      "Free and paid subscription plans",
+      "Smart subscription upgrade handling",
+      "Automated email notifications using Resend",
+      "Automatic invoice emails",
+      "PostgreSQL database with Prisma ORM",
+      "TanStack Query for data fetching",
+      "Responsive modern UI using Tailwind CSS and shadcn/ui"
+    ],
+    liveDemo: "https://smilesync-ai.vercel.app/",
+    github: "https://github.com/Naganathsd20/smilesync-ai",
+    screenshots: [
+      "/smilesync-1.png",
+      "/smilesync-2.png",
+      "/smilesync-3.png"
+    ]
+  },
+  {
+    id: "krishived-ai",
+    name: "KrishiVed AI",
+    tagline: "AI-Powered Agricultural Intelligence & Decision Support Platform",
+    featured: true,
+    category: "AI / Agentic AI",
+    image: "/krishived-1.png",
+    bannerImage: "/krishived-1.png",
+    description: "KrishiVed AI is an intelligent agricultural decision support platform built using agentic AI workflows to assist farmers with crop health analysis, soil intelligence, weather forecasting, and market insights.",
+    about: "KrishiVed AI is an agentic AI-powered agricultural web platform designed to empower farmers with real-time crop disease diagnostic insights, soil nutrient recommendations, localized weather advisory, and market price trends.",
+    techStack: [
+      "Python",
+      "FastAPI",
+      "React",
+      "Tailwind CSS",
+      "LangChain",
+      "OpenAI API",
+      "PyTorch",
+      "Vercel"
+    ],
+    keyFeatures: [
+      "Agentic AI disease diagnosis from plant leaf imagery",
+      "Soil nutrient analysis & fertilizer recommendation engine",
+      "Localized weather forecasting & agricultural advisory",
+      "Market price trend tracking & intelligence",
+      "Multilingual support for regional agricultural communities",
+      "FastAPI REST backend with async AI agent pipelines",
+      "Responsive React UI designed for accessibility"
+    ],
+    liveDemo: "https://krishived-ai.vercel.app/",
+    github: "https://github.com/Naganathsd20/KrishiVed-AI",
+    screenshots: [
+      "/krishived-1.png",
+      "/krishived-2.png",
+      "/krishived-3.png"
+    ]
+  },
+  {
+    id: "secure-auth-mern",
+    name: "SecureAuth MERN",
+    tagline: "Production-Style Full-Stack Authentication System",
+    featured: true,
+    category: "Full-Stack Web Application / Authentication System",
+    image: "/secureauth-1.png",
+    bannerImage: "/secureauth-1.png",
+    description: "SecureAuth MERN is a production-style full-stack authentication system built with the MERN stack. It provides secure user registration and login, JWT-based authentication, protected routes, password hashing, profile management, server-side and client-side validation, and a responsive glassmorphism interface.",
+    about: "SecureAuth MERN is a production-style full-stack authentication system built with the MERN stack. It provides secure user registration and login, JWT-based authentication, protected routes, password hashing, profile management, server-side and client-side validation, and a responsive glassmorphism interface.",
+    techStack: [
+      "React",
+      "Vite",
+      "JavaScript",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Mongoose",
+      "JWT",
+      "bcryptjs",
+      "Express Validator",
+      "Axios",
+      "Tailwind CSS",
+      "React Router",
+      "Lucide React"
+    ],
+    keyFeatures: [
+      "User registration with password strength and matching validation",
+      "Secure login with JWT authentication",
+      "JWT-protected API endpoints and routes",
+      "Password hashing using bcryptjs",
+      "Protected user dashboard",
+      "User profile management",
+      "Update name, email, bio, and password",
+      "Secure logout functionality",
+      "Client-side and server-side form validation",
+      "MongoDB database with Mongoose",
+      "Express authentication APIs",
+      "Axios API integration with Bearer token interceptor",
+      "Responsive glassmorphism UI",
+      "Interactive API middleware tester",
+      "Backend authentication integration tests"
+    ],
+    liveDemo: "https://secure-auth-mern-nine.vercel.app/",
+    github: "https://github.com/Naganathsd20/SecureAuth-MERN",
+    screenshots: [
+      "/secureauth-1.png",
+      "/secureauth-2.png",
+      "/secureauth-3.png"
+    ]
+  },
+  {
+    id: "ideal-ice-cream",
+    name: "Ideal Ice Cream",
+    tagline: "Modern Responsive Brand Website & Product Presentation",
+    featured: true,
+    category: "Frontend Web Application / Business Website",
+    image: "/idealicecream-1.png",
+    bannerImage: "/idealicecream-1.png",
+    description: "Ideal Ice Cream is a modern, responsive ice cream brand website designed to present the brand, its products, story, and customer-facing experience through a clean and visually appealing interface.",
+    about: "A modern responsive website for Ideal Ice Cream, designed with a visually engaging interface to showcase the brand, products, and overall customer experience. The project focuses on clean UI design, responsive layouts, smooth navigation, and an attractive product presentation.",
+    techStack: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Tailwind CSS",
+      "Responsive Web Design",
+      "Vercel"
+    ],
+    keyFeatures: [
+      "Modern ice cream brand landing page",
+      "Attractive hero section and brand presentation",
+      "Product-focused sections for showcasing ice cream offerings",
+      "Brand & story presentation section",
+      "Fully responsive layout across mobile, tablet, and desktop",
+      "Clean, modern, and visually appealing UI design",
+      "Fast and smooth user experience with intuitive navigation",
+      "Deployed as a live web application on Vercel"
+    ],
+    liveDemo: "https://ideal-icecream.vercel.app/",
+    github: "https://github.com/Naganathsd20/IDEAL-ICECREAM-",
+    screenshots: [
+      "/idealicecream-1.png",
+      "/idealicecream-2.png",
+      "/idealicecream-3.png"
     ]
   },
   {

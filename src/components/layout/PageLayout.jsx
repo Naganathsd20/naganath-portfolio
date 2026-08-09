@@ -2,40 +2,33 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
-import { ScrollProgress } from './ScrollProgress';
-import { ScrollToTop } from './ScrollToTop';
 
 export function PageLayout({ children, title }) {
   useEffect(() => {
-    // Scroll to top on route change
     window.scrollTo(0, 0);
 
-    // Dynamic document title update
     if (title) {
       document.title = `${title} — Naganath S Dharwadkar`;
     } else {
-      document.title = `Naganath S Dharwadkar — Final Year CS Student & Aspiring Developer`;
+      document.title = `Naganath S Dharwadkar — Developer Platform`;
     }
   }, [title]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0B1120] text-[#F8FAFC] selection:bg-[#22D3EE]/20 selection:text-[#22D3EE]">
-      <ScrollProgress />
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col antialiased font-sans">
       <Navbar />
 
       <motion.main
-        initial={{ opacity: 0, y: 8 }}
+        initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -8 }}
-        transition={{ duration: 0.25, ease: 'easeOut' }}
-        className="flex-grow w-full"
+        exit={{ opacity: 0, y: -6 }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
+        className="flex-1 w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8"
       >
         {children}
       </motion.main>
 
       <Footer />
-      <ScrollToTop />
     </div>
   );
 }
-
