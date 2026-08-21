@@ -10,15 +10,15 @@ export function Experience() {
       <div className="space-y-8 pb-12">
         
         {/* Header Section */}
-        <div className="border-b border-slate-200/80 pb-5">
-          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-purple-600 mb-1">
-            <Briefcase className="w-4 h-4" /> Internship Timeline & Experience
+        <div className="border-b border-[#CBD5E1] pb-5">
+          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#7C3AED] mb-1">
+            <Briefcase className="w-4 h-4 text-[#7C3AED]" /> Internship Timeline & Experience
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Experience Dashboard
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#172033] tracking-tight">
+            Experience Timeline
           </h1>
-          <p className="mt-1 text-sm text-slate-600 font-mono">
-            Practical software development internship work, MERN stack experience, and AI & Machine Learning training.
+          <p className="mt-1 text-sm text-[#475569] font-mono">
+            Practical software development internship work, MERN stack development, and AI & Machine Learning training.
           </p>
         </div>
 

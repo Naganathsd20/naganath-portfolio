@@ -1,72 +1,218 @@
 import React from 'react';
 import {
-  Code2,
-  FileCode,
-  Terminal,
-  Cpu,
-  Layout,
-  Palette,
+  Grid,
+  FileText,
+  GitFork,
   Layers,
-  Server,
-  Database,
   GitBranch,
-  Wrench,
-  Send,
-  Compass,
+  ListOrdered,
+  CheckCircle2,
   Sparkles,
-  Grid
+  BrainCircuit,
+  Bot,
+  Binary,
+  Code2
 } from 'lucide-react';
-import { GithubIcon } from './Icons';
 
-export function TechIcon({ name, className = "w-6 h-6 text-[#22D3EE]" }) {
+export function TechIcon({ name, className = "w-5 h-5" }) {
   switch (name) {
     case 'Java':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-          <path d="M4.5 18.5c2.5 1.5 6.5 1.8 10 .5.8-.3 2.5-1.2 2-1.5s-2 .2-2.8.4c-3.2.7-7.2.4-9.2-.8-.4-.2-.8-.2-0 1.4zm-1-4.2c3 1.8 8.2 2 12.2.5 1-.4 2.8-1.5 2.2-1.8s-2.4.3-3.4.6c-4 .9-8.8.6-11.2-.8-.5-.3-1-.3.2 1.5zm11.2-5.5c.8.9-.3 2.2-1.5 3-1.8 1.2-4.2 1.8-6.8 1.8-2 0-3.5-.3-4.5-.8-.3-.2.2-.5.5-.4 3 .4 6.8.2 9.2-1 .8-.4 1.8-1.2 1.5-1.5-.2-.2-.8.1-1.2.2-1.8.5-3.8.7-5.8.6-2.5-.1-4-.6-4.5-1.2-.2-.2.2-.4.6-.3 3.5.5 8-.1 10.5-1.5 1-.5 2.2-1.2 1.8-1.5-.2-.2-1 .1-1.5.2-2.5.6-5.2.8-7.8.6-2.2-.2-3.8-.8-4.2-1.5-.2-.2.2-.4.6-.3 3.8.7 8.5 0 11.2-1.8 1.2-.8.8-1.8.2-2.2-.5-.3-1.8.2-2.5.5-2.2.8-4.8 1.2-7.2 1-2.2-.2-3.5-.8-3.8-1.5-.2-.3.4-.4.8-.3 3.8.5 8.2-.2 10.8-2 1.2-.8 1.5-1.5 1.2-1.8-.4-.4-1.5.1-2.2.4-2.2.8-4.8 1.2-7.2 1-2-.2-3.2-.8-3.5-1.4-.2-.3.3-.4.8-.3 3.8.5 8.2-.2 10.8-2 1.2-.8 1.2-1.5.8-1.8z" />
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#5382A1" d="M8.85 17.84c-2.48.33-4.66.42-6.52.26.08.18.23.36.46.54 1.55.94 4.5 1.15 7.55.8 2.54-.29 4.81-1.02 5.92-1.92-1.39.5-4.41.69-7.41.32z" />
+          <path fill="#E76F00" d="M7.76 15.35c-2.22.42-4.14.73-5.63.78.1.18.29.36.56.52 1.62.77 4.54.7 7.42.23 2.55-.42 4.67-1.28 5.6-2.27-1.46.68-4.78 1.05-7.95.74z" />
+          <path fill="#5382A1" d="M12.98 12.3c.77.92-.09 2.22-1.22 3.01-1.63 1.14-3.82 1.76-6.19 1.76-1.8 0-3.15-.29-4.05-.78-.27-.15.22-.44.47-.39 2.72.39 6.13.23 8.35-.91.73-.38 1.66-1.12 1.39-1.46-.22-.27-.77.1-1.12.22-1.63.53-3.48.68-5.26.58-2.25-.13-3.62-.64-4.05-1.22-.18-.25.18-.39.54-.29 3.15.53 7.27-.08 9.53-1.42.92-.54 1.99-1.17 1.61-1.47-.18-.15-.9.12-1.35.25-2.25.77-4.66 1.13-6.87.97-1.99-.15-3.15-.74-3.5-1.37-.18-.29.23-.39.59-.29 3.44.7 7.72.03 10.15-1.64 1.08-.75 1.35-1.42 1.08-1.71-.36-.39-1.35.1-1.99.39-1.99.77-4.33 1.17-6.52.97-1.8-.15-2.89-.74-3.15-1.32-.18-.29.27-.39.72-.29 3.44.53 7.42-.15 9.77-1.8 1.08-.75 1.08-1.42.72-1.71-.36-.29-1.35.09-1.99.36-1.99.77-4.33 1.17-6.52.97-1.8-.15-2.89-.74-3.15-1.32-.18-.29.27-.39.72-.29 3.44.53 7.42-.15 9.77-1.8z" />
+        </svg>
+      );
+    case 'Python':
+    case 'Python for AI/ML':
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#3776AB" d="M11.89 2c-4.22 0-3.98 1.83-3.98 1.83v1.9h8.04v.61H4.66S2.5 6.11 2.5 10.33c0 4.22 1.88 4.07 1.88 4.07h1.12v-1.8c0-1.38 1.18-2.52 2.56-2.52h4.22c1.4 0 2.52-1.14 2.52-2.52V4.52C14.8 3.14 13.66 2 11.89 2zm-1.86 1.32a.66.66 0 1 1 0 1.32.66.66 0 0 1 0-1.32z" />
+          <path fill="#FFD43B" d="M12.11 22c4.22 0 3.98-1.83 3.98-1.83v-1.9H8.05v-.61h11.29s2.16.23 2.16-3.99c0-4.22-1.88-4.07-1.88-4.07h-1.12v1.8c0 1.38-1.18 2.52-2.56 2.52h-4.22c-1.4 0-2.52 1.14-2.52 2.52v3.04C9.2 20.86 10.34 22 12.11 22zm1.86-1.32a.66.66 0 1 1 0-1.32.66.66 0 0 1 0 1.32z" />
         </svg>
       );
     case 'JavaScript':
       return (
-        <span className="font-extrabold font-mono text-sm bg-[#22D3EE]/20 text-[#22D3EE] px-1.5 py-0.5 rounded border border-[#22D3EE]/40">
-          JS
-        </span>
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <rect width="24" height="24" fill="#F7DF1E" rx="3" />
+          <path fill="#000000" d="M12.35 18.58c.84 0 1.5-.26 1.96-.78.47-.52.7-1.3.7-2.34v-5.07h-2.14v5.03c0 .48-.11.82-.33 1.02-.22.2-.54.3-.96.3-.39 0-.7-.09-.94-.28-.24-.18-.39-.47-.44-.86h-2.13c.07.96.44 1.68 1.11 2.16.67.48 1.73.72 3.17.72zm-7.62-.03c.96 0 1.71-.24 2.25-.72.54-.48.84-1.18.9-2.1h-2.1c-.04.42-.17.72-.39.91-.22.19-.53.28-.93.28-.38 0-.68-.09-.9-.27-.22-.18-.33-.44-.33-.78 0-.25.07-.46.22-.62.15-.16.48-.34 1-.54l1.24-.46c.92-.35 1.58-.75 1.98-1.2.4-.45.6-1.07.6-1.86 0-1-.34-1.76-1.02-2.28-.68-.52-1.63-.78-2.85-.78-1.04 0-1.88.25-2.52.76-.64.51-.99 1.27-1.05 2.29h2.1c.04-.42.17-.73.39-.93.22-.2.53-.3.93-.3.35 0 .63.08.84.24.21.16.31.39.31.69 0 .22-.07.41-.21.57-.14.16-.44.33-.9.51l-1.28.49c-.93.36-1.6.78-2 1.25-.4.47-.6 1.09-.6 1.87 0 1.02.35 1.8 1.05 2.34.7.54 1.71.81 3.03.81z" />
+        </svg>
       );
-    case 'Python':
-      return <Terminal className={className} />;
     case 'C':
-      return <Cpu className={className} />;
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#A8B9CC" d="M12 2L2 7.5v9L12 22l10-5.5v-9L12 2z" />
+          <path fill="#ffffff" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5c1.65 0 3.12-.8 4.03-2.03l-1.84-1.06c-.45.65-1.21 1.09-2.19 1.09-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5c.98 0 1.74.44 2.19 1.09l1.84-1.06C15.12 7.8 13.65 7 12 7z" />
+        </svg>
+      );
+    case 'C++':
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#00599C" d="M12 2L2 7.5v9L12 22l10-5.5v-9L12 2z" />
+          <path fill="#ffffff" d="M9.5 8c-2.2 0-4 1.8-4 4s1.8 4 4 4c1.3 0 2.5-.6 3.2-1.6l-1.4-.8c-.4.5-1 .8-1.8.8-1.1 0-2-.9-2-2s.9-2 2-2c.8 0 1.4.3 1.8.8l1.4-.8C12 8.6 10.8 8 9.5 8zm5.5 2.5v1h-1v1h1v1h1v-1h1v-1h-1v-1h-1zm3.5 0v1h-1v1h1v1h1v-1h1v-1h-1v-1h-1z" />
+        </svg>
+      );
     case 'HTML5':
-      return <Layout className={className} />;
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#E34F26" d="M1.5 0h21l-1.91 21.563L11.97 24l-8.564-2.438L1.5 0z" />
+          <path fill="#EF652A" d="M12 2.18v19.605l6.544-1.819 1.554-17.786H12z" />
+          <path fill="#FFFFFF" d="M12 9.75H7.031l.232 2.718H12v2.679H6.1l.374 4.387 5.526 1.535v-2.827l-2.986-.807-.193-2.184H6.1l.374 4.387 5.497 1.527V9.75z" />
+          <path fill="#E0E0E0" d="M12 4.346v2.679h6.709l-.236 2.725H12v2.679h3.719l-.367 4.103-3.352.905v2.827l5.492-1.527.75-8.406H12z" />
+        </svg>
+      );
     case 'CSS3':
-      return <Palette className={className} />;
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#1572B6" d="M1.5 0h21l-1.91 21.563L11.97 24l-8.564-2.438L1.5 0z" />
+          <path fill="#33A9DC" d="M12 2.18v19.605l6.544-1.819 1.554-17.786H12z" />
+          <path fill="#FFFFFF" d="M12 9.75H7.031l.232 2.718H12v2.679H6.1l.374 4.387 5.526 1.535v-2.827l-2.986-.807-.193-2.184H6.1l.374 4.387 5.497 1.527V9.75z" />
+          <path fill="#E0E0E0" d="M12 4.346v2.679h6.709l-.236 2.725H12v2.679h3.719l-.367 4.103-3.352.905v2.827l5.492-1.527.75-8.406H12z" />
+        </svg>
+      );
     case 'React':
-      return <Code2 className={className} />;
+    case 'React.js':
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <circle cx="12" cy="12" r="2.2" fill="#61DAFB" />
+          <g fill="none" stroke="#61DAFB" strokeWidth="1.4">
+            <ellipse cx="12" cy="12" rx="9.5" ry="4.2" />
+            <ellipse cx="12" cy="12" rx="9.5" ry="4.2" transform="rotate(60 12 12)" />
+            <ellipse cx="12" cy="12" rx="9.5" ry="4.2" transform="rotate(120 12 12)" />
+          </g>
+        </svg>
+      );
+    case 'Vite':
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#FFD62E" d="M21.84 2.82c-.22-.05-.44 0-.6.14L12.5 11.2 5.5 3c-.15-.18-.38-.27-.6-.24s-.42.17-.5.38L.06 17.5c-.1.28 0 .58.22.75l10.5 8c.14.1.32.15.5.15s.36-.05.5-.15l11.5-8.5c.22-.17.32-.47.22-.75L18.4 3.2c-.08-.2-.28-.33-.5-.38z" />
+          <path fill="#BD34FE" d="M18.4 3.2L12.5 11.2 5.5 3c-.15-.18-.38-.27-.6-.24s-.42.17-.5.38L.06 17.5c-.1.28 0 .58.22.75l10.5 8c.14.1.32.15.5.15s.36-.05.5-.15l11.5-8.5c.22-.17.32-.47.22-.75L18.4 3.2z" />
+        </svg>
+      );
     case 'Tailwind CSS':
-      return <Layers className={className} />;
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#06B6D4" d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.336 6.182 14.975 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C7.666 17.818 9.027 19.2 12.001 19.2c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.336 13.382 8.975 12 6.001 12z" />
+        </svg>
+      );
     case 'Bootstrap':
-      return <Grid className={className} />;
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#7952B3" d="M18.8 4H5.2C4.5 4 4 4.5 4 5.2v13.6c0 .7.5 1.2 1.2 1.2h13.6c.7 0 1.2-.5 1.2-1.2V5.2c0-.7-.5-1.2-1.2-1.2zm-5.4 11.2h-3.8V8.8h3.8c1 0 1.7.7 1.7 1.6 0 .6-.3 1.1-.8 1.4.7.2 1.1.8 1.1 1.5 0 1.1-.8 1.9-2 1.9z" />
+          <path fill="#ffffff" d="M11.5 10.2h1.6c.4 0 .7.2.7.6s-.3.6-.7.6h-1.6v-1.2zm0 3.6h1.8c.5 0 .8.2.8.7s-.3.7-.8.7h-1.8v-1.4z" />
+        </svg>
+      );
+    case 'Redux Toolkit':
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#764ABC" d="M12.793 1.002c-1.396.196-2.585.867-3.414 1.928a.5.5 0 0 0 .794.61c.677-.866 1.642-1.417 2.766-1.575 1.642-.23 3.24.417 4.17 1.731.93 1.314.93 3.036.001 4.35-.93 1.314-2.528 1.96-4.17 1.731-1.124-.158-2.089-.709-2.766-1.575a.5.5 0 1 0-.794.61c.829 1.06 2.018 1.732 3.414 1.928 2.053.287 4.05-.521 5.213-2.164C19.171 6.93 19.171 4.776 18.007 3.132 16.844 1.488 14.847.68 12.793 1.002z" />
+        </svg>
+      );
     case 'Node.js':
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#339933" d="M12 2L2 7.5v9L12 22l10-5.5v-9L12 2zm0 2.23l7.5 4.12v7.3L12 19.77l-7.5-4.12v-7.3L12 4.23z" />
+          <path fill="#339933" d="M12 7.5L5.5 11.2v3.6L12 18.5l6.5-3.7v-3.6L12 7.5z" />
+        </svg>
+      );
     case 'Express.js':
-      return <Server className={className} />;
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#172033" d="M24 18.59l-4.59-4.59L24 9.41l-2.83-2.83-4.59 4.59-4.59-4.59L9.17 9.41l4.59 4.59-4.59 4.59 2.83 2.83 4.59-4.59 4.59 4.59zM0 6v12h4v-2H2V8h2V6H0z" />
+        </svg>
+      );
+    case 'REST APIs':
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#0284C7" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 14.93V18h-2v-1.07A7.001 7.001 0 0 1 5.07 13H6v-2h-.93A7.001 7.001 0 0 1 11 5.07V6h2v-.93A7.001 7.001 0 0 1 18.93 11H18v2h.93A7.001 7.001 0 0 1 13 16.93z" />
+        </svg>
+      );
+    case 'JWT Authentication':
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#D63AFF" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+        </svg>
+      );
+    case 'Multer':
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#E11D48" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z" />
+        </svg>
+      );
+    case 'Cloudinary':
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#3448C5" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" />
+        </svg>
+      );
     case 'MongoDB':
-    case 'MySQL':
-      return <Database className={className} />;
-    case 'Git':
-      return <GitBranch className={className} />;
-    case 'GitHub':
-      return <GithubIcon className={className} />;
-    case 'VS Code':
-      return <Wrench className={className} />;
-    case 'Postman':
-      return <Send className={className} />;
     case 'MongoDB Compass':
-      return <Compass className={className} />;
-    case 'Data Structures & Algorithms':
-      return <Cpu className={className} />;
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#47A248" d="M12 2C11.5 3 11 5 11 7c0 3.5 1.5 6.5 1 10-.5 3.5-2 5-2 5s3.5-1 4-4c.5-3 0-6.5 0-10 0-2-.5-4-1-6zm-1.5 16.5c-.5.5-1 1-1.5 1.5.5-1 1-2 1.5-3 .5 1 .5 1.5 0 1.5z" />
+        </svg>
+      );
+    case 'MySQL':
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#4479A1" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm0-4h-2V7h2v7z" />
+          <path fill="#F29111" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z" />
+        </svg>
+      );
+    case 'Redis':
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#DC382D" d="M2 5.5L12 2l10 3.5V8L12 11.5 2 8V5.5zm0 6L12 15l10-3.5V14L12 17.5 2 14v-2.5zm0 6L12 21l10-3.5V20L12 23.5 2 20v-2.5z" />
+        </svg>
+      );
+    case 'Git':
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#F05032" d="M2.6 10.59L11.41 1.8a2.53 2.53 0 0 1 3.56 0l7.24 7.24a2.53 2.53 0 0 1 0 3.56l-8.81 8.81a2.53 2.53 0 0 1-3.56 0l-7.24-7.24a2.51 2.51 0 0 1 0-3.58zm10.59 6.01a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-3.5-3.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm7-7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+        </svg>
+      );
+    case 'GitHub':
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#181717" fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+        </svg>
+      );
+    case 'VS Code':
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#007ACC" d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.291L7.548 9.381 3.086 5.8a1.05 1.05 0 0 0-1.341.054L.297 7.185a.974.974 0 0 0 .045 1.433l4.237 3.511-4.237 3.511a.97.97 0 0 0-.045 1.433l1.448 1.331c.4.368.995.387 1.341.054l4.462-3.581 8.957 8.88c.489.485 1.229.59 1.705.291l4.94-2.377a1.497 1.497 0 0 0 .845-1.346V3.933c0-.62-.352-1.177-.845-1.346zm-5.65 14.86L10.354 12l7.146-5.447v10.894z" />
+        </svg>
+      );
+    case 'Postman':
+      return (
+        <svg className={className} viewBox="0 0 24 24" width="20" height="20">
+          <path fill="#FF6C37" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 13.5l-3.2-3.2 1.4-1.4 1.8 1.8 4.8-4.8 1.4 1.4-6.2 6.2z" />
+        </svg>
+      );
+    case 'Arrays':
+      return <Grid className={`text-[#7C3AED] ${className}`} />;
+    case 'Strings':
+      return <FileText className={`text-[#0891B2] ${className}`} />;
+    case 'Linked Lists':
+      return <GitFork className={`text-[#7C3AED] ${className}`} />;
+    case 'Stacks & Queues':
+      return <Layers className={`text-[#059669] ${className}`} />;
+    case 'Trees':
+      return <GitBranch className={`text-[#059669] ${className}`} />;
+    case 'Sorting & Searching':
+      return <ListOrdered className={`text-[#7C3AED] ${className}`} />;
+    case 'Problem Solving':
+      return <CheckCircle2 className={`text-[#059669] ${className}`} />;
     case 'AI Fundamentals':
-      return <Sparkles className={className} />;
+      return <Sparkles className={`text-amber-500 ${className}`} />;
+    case 'Machine Learning Fundamentals':
+      return <BrainCircuit className={`text-[#7C3AED] ${className}`} />;
+    case 'AI API Integration':
+      return <Bot className={`text-[#0891B2] ${className}`} />;
+    case 'Data Structures & Algorithms':
+      return <Binary className={`text-[#7C3AED] ${className}`} />;
     default:
-      return <Code2 className={className} />;
+      return <Code2 className={`text-[#7C3AED] ${className}`} />;
   }
 }

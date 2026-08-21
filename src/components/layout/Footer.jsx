@@ -9,71 +9,74 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-white border-t border-slate-200 text-slate-600 pt-12 pb-8 mt-auto">
+    <footer className="w-full bg-[#273449] border-t border-[#334155] text-[#94A3B8] pt-12 pb-8 mt-auto font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-slate-100">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-[#334155]">
           
-          {/* Col 1: Brand */}
+          {/* Brand Info */}
           <div className="md:col-span-2 space-y-3">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white font-bold text-xs shadow-xs">
+              <div className="w-9 h-9 rounded-xl bg-[#7C3AED] flex items-center justify-center text-white font-bold text-sm shadow-xs">
                 ND
               </div>
-              <span className="font-extrabold text-base text-slate-900 tracking-tight uppercase font-mono">
+              <span className="font-extrabold text-base text-white tracking-tight font-sans">
                 {personalInfo.name}
               </span>
             </div>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-md leading-relaxed">
-              Final Year Computer Science & Engineering Student at Sahyadri College. Building full-stack web applications and AI-powered platforms.
+            <p className="text-xs sm:text-sm text-[#94A3B8] max-w-md leading-relaxed font-sans">
+              Final-Year Computer Science & Engineering student at Sahyadri College of Engineering & Management. Focused on Java, Data Structures & Algorithms, Full-Stack Web Development, and AI fundamentals.
             </p>
             <div className="pt-1">
-              <Badge variant="emerald" pulse className="text-xs">
-                Open to Software Developer Roles
+              <Badge variant="emerald" pulse className="text-xs font-mono font-semibold">
+                {personalInfo.availability || "Open to Software Developer Roles"}
               </Badge>
             </div>
           </div>
 
-          {/* Col 2: Navigation Links */}
-          <div className="space-y-2.5">
-            <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider font-mono">
-              Platform Links
+          {/* Quick Links */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider font-mono">
+              Navigation
             </h4>
-            <ul className="space-y-1.5 text-xs text-slate-600">
+            <ul className="space-y-2 text-xs font-sans text-[#94A3B8]">
               <li>
-                <Link to="/about" className="hover:text-purple-600 transition-colors">About Me</Link>
+                <Link to="/about" className="hover:text-purple-300 transition-colors">About Me</Link>
               </li>
               <li>
-                <Link to="/projects" className="hover:text-purple-600 transition-colors">Featured Projects</Link>
+                <Link to="/skills" className="hover:text-purple-300 transition-colors">Skills & Technologies</Link>
               </li>
               <li>
-                <Link to="/experience" className="hover:text-purple-600 transition-colors">Internship Experience</Link>
+                <Link to="/projects" className="hover:text-purple-300 transition-colors">Featured Projects</Link>
               </li>
               <li>
-                <Link to="/achievements" className="hover:text-purple-600 transition-colors">Achievements & Certifications</Link>
+                <Link to="/experience" className="hover:text-purple-300 transition-colors">Internship Experience</Link>
               </li>
               <li>
-                <Link to="/resume" className="hover:text-purple-600 transition-colors">Official Resume</Link>
+                <Link to="/achievements" className="hover:text-purple-300 transition-colors">Achievements & Certifications</Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-purple-600 transition-colors">Contact</Link>
+                <Link to="/resume" className="hover:text-purple-300 transition-colors">Official Resume</Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-purple-300 transition-colors">Contact</Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Social & Contact */}
-          <div className="space-y-2.5">
-            <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider font-mono">
+          {/* Social & Contact */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider font-mono">
               Connect
             </h4>
-            <ul className="space-y-2 text-xs text-slate-600">
+            <ul className="space-y-2 text-xs font-mono text-[#94A3B8]">
               <li>
                 <a
                   href={personalInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 hover:text-purple-600 transition-colors font-mono"
+                  className="inline-flex items-center gap-1.5 hover:text-purple-300 transition-colors"
                 >
-                  <GithubIcon className="w-3.5 h-3.5 text-purple-600" /> GitHub Profile <ArrowUpRight className="w-3 h-3 text-slate-400" />
+                  <GithubIcon className="w-3.5 h-3.5 text-[#0891B2]" /> GitHub Profile <ArrowUpRight className="w-3 h-3 text-[#94A3B8]" />
                 </a>
               </li>
               <li>
@@ -81,17 +84,17 @@ export function Footer() {
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 hover:text-purple-600 transition-colors font-mono"
+                  className="inline-flex items-center gap-1.5 hover:text-purple-300 transition-colors"
                 >
-                  <LinkedinIcon className="w-3.5 h-3.5 text-purple-600" /> LinkedIn Profile <ArrowUpRight className="w-3 h-3 text-slate-400" />
+                  <LinkedinIcon className="w-3.5 h-3.5 text-purple-400" /> LinkedIn Profile <ArrowUpRight className="w-3 h-3 text-[#94A3B8]" />
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="inline-flex items-center gap-1.5 hover:text-purple-600 transition-colors font-mono"
+                  className="inline-flex items-center gap-1.5 hover:text-purple-300 transition-colors"
                 >
-                  <Mail className="w-3.5 h-3.5 text-purple-600" /> {personalInfo.email}
+                  <Mail className="w-3.5 h-3.5 text-purple-400" /> {personalInfo.email}
                 </a>
               </li>
             </ul>
@@ -99,9 +102,10 @@ export function Footer() {
 
         </div>
 
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3 font-mono">
+        {/* Footer Bottom */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-[#94A3B8] gap-3 font-mono">
           <p>© {currentYear} Naganath S Dharwadkar. All rights reserved.</p>
-          <span>Personal Developer Platform</span>
+          <span className="text-[#94A3B8]/80">Software Developer Portfolio</span>
         </div>
       </div>
     </footer>

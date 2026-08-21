@@ -15,7 +15,7 @@ export function Button({
   disabled = false,
   ...props
 }) {
-  const base = "inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-purple-500/30 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98]";
+  const base = "inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98]";
 
   const sizes = {
     sm: "px-3.5 py-1.5 text-xs gap-1.5",
@@ -24,11 +24,11 @@ export function Button({
   };
 
   const variants = {
-    primary: "bg-purple-600 hover:bg-purple-700 text-white shadow-sm hover:shadow hover:-translate-y-0.5",
-    secondary: "bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 shadow-sm hover:border-purple-300 hover:text-purple-700",
-    outline: "bg-transparent border border-slate-300 text-slate-700 hover:border-purple-600 hover:text-purple-600",
-    ghost: "bg-transparent hover:bg-purple-50 text-slate-600 hover:text-purple-700",
-    gradient: "bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-md hover:shadow-lg"
+    primary: "bg-[#7C3AED] hover:bg-[#6D28D9] text-white shadow-2xs hover:shadow-md hover:-translate-y-0.5",
+    secondary: "bg-white hover:bg-slate-50 text-[#172033] border border-[#CBD5E1] hover:border-[#7C3AED] hover:text-[#7C3AED] shadow-2xs",
+    outline: "bg-transparent border border-[#CBD5E1] text-[#172033] hover:border-[#7C3AED] hover:text-[#7C3AED]",
+    ghost: "bg-transparent hover:bg-[#EDE9FE] text-[#475569] hover:text-[#7C3AED]",
+    gradient: "bg-gradient-to-r from-[#7C3AED] via-indigo-600 to-[#0891B2] hover:from-[#6D28D9] hover:to-[#0891B2] text-white shadow-md"
   };
 
   const content = (

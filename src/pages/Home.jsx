@@ -2,21 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Code2,
-  Layers,
   Cpu,
   Sparkles,
   ArrowRight,
   Download,
   Mail,
-  ExternalLink,
   CheckCircle2,
   FolderGit2,
   Briefcase,
-  GraduationCap,
   Trophy,
   Binary,
   ShieldCheck,
-  ChevronRight
+  ChevronRight,
+  Award
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../components/common/Icons';
 import { PageLayout } from '../components/layout/PageLayout';
@@ -24,163 +22,161 @@ import { Button } from '../components/common/Button';
 import { Card } from '../components/common/Card';
 import { Badge } from '../components/common/Badge';
 import { ProjectCard } from '../components/ui/ProjectCard';
-import { personalInfo, stats, projects, skills, achievements } from '../data/portfolioData';
+import { personalInfo, stats, projects, skills, certifications } from '../data/portfolioData';
 
 export function Home() {
   const featuredProjects = projects.filter(p => p.featured).slice(0, 4);
 
   return (
-    <PageLayout title="Developer Dashboard">
+    <PageLayout title="Software Developer Portfolio">
       <div className="space-y-8 pb-12">
         
-        {/* 1. Welcome / Hero Command Center Card */}
-        <div className="rounded-2xl border border-slate-200/80 bg-white p-6 sm:p-8 shadow-xs relative overflow-hidden">
-          <div className="absolute -right-16 -top-16 w-64 h-64 bg-purple-100/60 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -left-16 -bottom-16 w-64 h-64 bg-blue-100/60 rounded-full blur-3xl pointer-events-none" />
+        {/* 1. Hero Profile Card (#FFFFFF bg) */}
+        <div className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-8 shadow-2xs relative overflow-hidden">
+          <div className="absolute -right-16 -top-16 w-64 h-64 bg-[#EDE9FE] rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
+            
             {/* Profile Picture */}
             <div className="relative flex-shrink-0">
-              <div className="w-28 h-32 sm:w-32 sm:h-36 rounded-2xl overflow-hidden border-2 border-purple-200/80 shadow-md bg-slate-100">
+              <div className="w-28 h-32 sm:w-32 sm:h-36 rounded-2xl overflow-hidden border-2 border-[#EDE9FE] shadow-xs bg-[#F1F5F9]">
                 <img
                   src={personalInfo.profileImage}
                   alt={personalInfo.name}
                   className="w-full h-full object-cover object-top"
                 />
               </div>
-              <div className="absolute -bottom-2 -right-2 bg-emerald-500 text-white p-1.5 rounded-full border-2 border-white shadow-xs" title="Available for opportunities">
+              <div className="absolute -bottom-2 -right-2 bg-[#059669] text-white p-1.5 rounded-full border-2 border-white shadow-xs" title="Available for opportunities">
                 <ShieldCheck className="w-3.5 h-3.5" />
               </div>
             </div>
 
-            {/* User Meta Information */}
+            {/* Candidate Metadata */}
             <div className="flex-1 text-center md:text-left space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200/70 text-xs font-mono font-medium">
-                <Sparkles className="w-3.5 h-3.5 text-purple-600" />
-                <span>Software Developer • Full-Stack Developer • AI Enthusiast</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EDE9FE] text-[#7C3AED] border border-[#7C3AED]/30 text-xs font-mono font-bold">
+                <Sparkles className="w-3.5 h-3.5 text-[#7C3AED]" />
+                <span>Software Developer • Full-Stack Developer • CS Student</span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#172033]">
                 {personalInfo.name}
               </h1>
 
-              <p className="text-sm sm:text-base font-medium text-slate-600 font-mono">
+              <p className="text-sm sm:text-base font-bold text-[#7C3AED] font-mono">
                 {personalInfo.title} • {personalInfo.degree}
               </p>
 
-              <p className="text-sm text-slate-600 leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-base text-[#475569] leading-relaxed max-w-2xl font-sans">
                 {personalInfo.bio}
               </p>
 
-              {/* CTAs & Social Buttons */}
+              {/* Action Buttons & Links */}
               <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3">
                 <Button variant="primary" size="md" href="/projects" icon={FolderGit2}>
-                  View My Work
+                  View Featured Projects
                 </Button>
 
                 <Button variant="secondary" size="md" href={personalInfo.resumeUrl} target="_blank" icon={Download}>
                   Download Resume
                 </Button>
 
-                <div className="flex items-center gap-2 pl-2 border-l border-slate-200">
+                <div className="flex items-center gap-2 pl-2 border-l border-[#CBD5E1]">
                   <a
                     href={personalInfo.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-xl bg-slate-50 border border-slate-200 hover:border-purple-300 text-slate-700 hover:text-purple-600 transition-colors shadow-2xs"
+                    className="p-2 rounded-xl bg-[#F1F5F9] border border-[#CBD5E1] hover:border-[#7C3AED] text-[#172033] hover:text-[#7C3AED] transition-colors shadow-2xs"
                     title="GitHub Profile"
                   >
-                    <GithubIcon className="w-4 h-4" />
+                    <GithubIcon className="w-4 h-4 text-[#0891B2]" />
                   </a>
 
                   <a
                     href={personalInfo.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-xl bg-slate-50 border border-slate-200 hover:border-purple-300 text-slate-700 hover:text-purple-600 transition-colors shadow-2xs"
+                    className="p-2 rounded-xl bg-[#F1F5F9] border border-[#CBD5E1] hover:border-[#7C3AED] text-[#172033] hover:text-[#7C3AED] transition-colors shadow-2xs"
                     title="LinkedIn Profile"
                   >
-                    <LinkedinIcon className="w-4 h-4 text-purple-600" />
+                    <LinkedinIcon className="w-4 h-4 text-[#7C3AED]" />
                   </a>
 
                   <a
                     href={`mailto:${personalInfo.email}`}
-                    className="p-2 rounded-xl bg-slate-50 border border-slate-200 hover:border-purple-300 text-slate-700 hover:text-purple-600 transition-colors shadow-2xs"
+                    className="p-2 rounded-xl bg-[#F1F5F9] border border-[#CBD5E1] hover:border-[#7C3AED] text-[#172033] hover:text-[#7C3AED] transition-colors shadow-2xs"
                     title="Send Email"
                   >
-                    <Mail className="w-4 h-4 text-pink-600" />
+                    <Mail className="w-4 h-4 text-[#7C3AED]" />
                   </a>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 
-        {/* 2. Quick Dashboard Statistics Grid */}
+        {/* 2. Key Metrics Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {stats.map((stat, idx) => (
-            <Card key={idx} className="p-5 space-y-1">
-              <div className="text-xs font-mono font-medium text-slate-500 uppercase tracking-wider">
+            <Card key={idx} className="p-5 space-y-1 bg-white border-[#CBD5E1]">
+              <div className="text-xs font-mono font-bold text-[#475569] uppercase tracking-wider">
                 {stat.label}
               </div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              <div className="text-2xl sm:text-3xl font-extrabold text-[#172033] tracking-tight">
                 {stat.value}
               </div>
-              <div className="text-xs font-mono text-purple-700 font-medium">
+              <div className="text-xs font-mono text-[#7C3AED] font-semibold">
                 {stat.change}
               </div>
             </Card>
           ))}
         </div>
 
-        {/* 3. "My Snapshot" & Current Focus Card Grid */}
+        {/* 3. Developer Snapshot & Technical Focus */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           
-          {/* My Snapshot Card */}
-          <Card className="p-6 md:col-span-2 space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <div className="flex items-center gap-2 font-bold text-slate-900 text-base">
-                <div className="w-7 h-7 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center font-mono text-xs">
-                  01
-                </div>
-                Developer Snapshot
+          {/* Candidate Overview Card (#FFFFFF bg) */}
+          <Card className="p-6 md:col-span-2 space-y-4 bg-white border-[#CBD5E1]">
+            <div className="flex items-center justify-between border-b border-[#CBD5E1] pb-3">
+              <div className="flex items-center gap-2 font-extrabold text-[#172033] text-lg">
+                Developer Overview
               </div>
-              <Badge variant="purple">Verified Data</Badge>
+              <Badge variant="purple" className="text-xs font-mono font-semibold">Verified Student Data</Badge>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-              <div className="space-y-1 p-3 rounded-xl bg-slate-50 border border-slate-100">
-                <span className="text-xs font-mono text-slate-500">Institution</span>
-                <p className="font-semibold text-slate-800">{personalInfo.college}</p>
+              <div className="space-y-1 p-3 rounded-xl bg-[#F1F5F9] border border-[#CBD5E1]">
+                <span className="text-xs font-mono text-[#475569] font-bold">Institution</span>
+                <p className="font-semibold text-[#172033]">{personalInfo.college}</p>
               </div>
 
-              <div className="space-y-1 p-3 rounded-xl bg-slate-50 border border-slate-100">
-                <span className="text-xs font-mono text-slate-500">Current Semester</span>
-                <p className="font-semibold text-slate-800">{personalInfo.semester}</p>
+              <div className="space-y-1 p-3 rounded-xl bg-[#F1F5F9] border border-[#CBD5E1]">
+                <span className="text-xs font-mono text-[#475569] font-bold">Academic Standing</span>
+                <p className="font-semibold text-[#172033]">{personalInfo.semester} (CGPA: 7.83)</p>
               </div>
 
-              <div className="space-y-1 p-3 rounded-xl bg-slate-50 border border-slate-100">
-                <span className="text-xs font-mono text-slate-500">Primary Stack</span>
-                <p className="font-semibold text-purple-700">Java • MERN Stack • React • Node</p>
+              <div className="space-y-1 p-3 rounded-xl bg-[#F1F5F9] border border-[#CBD5E1]">
+                <span className="text-xs font-mono text-[#475569] font-bold">Core Stack</span>
+                <p className="font-bold text-[#7C3AED]">Java • MERN Stack • React • Node</p>
               </div>
 
-              <div className="space-y-1 p-3 rounded-xl bg-slate-50 border border-slate-100">
-                <span className="text-xs font-mono text-slate-500">Algorithmic Practice</span>
-                <p className="font-semibold text-emerald-700">350+ DSA Problems Solved</p>
+              <div className="space-y-1 p-3 rounded-xl bg-[#F1F5F9] border border-[#CBD5E1]">
+                <span className="text-xs font-mono text-[#475569] font-bold">Problem Solving</span>
+                <p className="font-bold text-[#059669]">350+ DSA Problems Solved</p>
               </div>
             </div>
           </Card>
 
-          {/* Current Focus Card */}
-          <Card className="p-6 space-y-4">
-            <div className="flex items-center gap-2 font-bold text-slate-900 text-base border-b border-slate-100 pb-3">
-              <Cpu className="w-5 h-5 text-purple-600" /> Current Focus
+          {/* Current Focus Card (#FFFFFF bg) */}
+          <Card className="p-6 space-y-4 bg-white border-[#CBD5E1]">
+            <div className="flex items-center gap-2 font-extrabold text-[#172033] text-lg border-b border-[#CBD5E1] pb-3">
+              <Cpu className="w-5 h-5 text-[#7C3AED]" /> Technical Focus
             </div>
 
             <div className="space-y-2.5">
               {personalInfo.currentFocus.map((focus, idx) => (
-                <div key={idx} className="flex items-center gap-2.5 p-2.5 rounded-xl bg-purple-50/60 border border-purple-100 text-xs font-semibold text-purple-900">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0" />
+                <div key={idx} className="flex items-center gap-2.5 p-2.5 rounded-xl bg-[#EDE9FE] border border-[#7C3AED]/30 text-xs font-semibold text-[#7C3AED]">
+                  <CheckCircle2 className="w-4 h-4 text-[#7C3AED] flex-shrink-0" />
                   <span>{focus}</span>
                 </div>
               ))}
@@ -193,16 +189,16 @@ export function Home() {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+              <h2 className="text-2xl font-extrabold text-[#172033] tracking-tight">
                 Featured Projects
               </h2>
-              <p className="text-xs sm:text-sm text-slate-500 font-mono mt-0.5">
-                Major full-stack and AI applications from my portfolio
+              <p className="text-xs sm:text-sm text-[#475569] font-mono mt-0.5">
+                Full-stack web portals and AI applications
               </p>
             </div>
             <Link
               to="/projects"
-              className="inline-flex items-center gap-1.5 text-xs font-bold font-mono text-purple-600 hover:text-purple-700 bg-purple-50 hover:bg-purple-100 px-3 py-1.5 rounded-xl border border-purple-200 transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-bold font-mono text-[#7C3AED] hover:text-[#6D28D9] bg-[#EDE9FE] px-3.5 py-2 rounded-xl border border-[#7C3AED]/30 transition-colors"
             >
               View All Projects <ArrowRight className="w-3.5 h-3.5" />
             </Link>
@@ -215,125 +211,43 @@ export function Home() {
           </div>
         </div>
 
-        {/* 5. Tech Stack & DSA Progress Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          
-          {/* Tech Stack Dashboard Overview */}
-          <Card className="lg:col-span-2 p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <div className="flex items-center gap-2 font-bold text-slate-900 text-base">
-                <Code2 className="w-5 h-5 text-purple-600" /> Technology Stack
-              </div>
-              <Link to="/skills" className="text-xs font-mono text-purple-600 hover:underline">
-                Explore Skills →
-              </Link>
+        {/* 5. Verified Credentials Highlight */}
+        <Card className="p-6 space-y-4 bg-white border-[#CBD5E1]">
+          <div className="flex items-center justify-between border-b border-[#CBD5E1] pb-3">
+            <div className="flex items-center gap-2 font-extrabold text-[#172033] text-lg">
+              <ShieldCheck className="w-5 h-5 text-[#7C3AED]" /> Verified Certifications & Simulation
             </div>
-
-            <div className="space-y-4">
-              {/* Programming Languages */}
-              <div className="space-y-1.5">
-                <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">Languages</span>
-                <div className="flex flex-wrap gap-2">
-                  {skills.programmingLanguages.map((lang, idx) => (
-                    <Badge key={idx} variant="purple" className="text-xs">
-                      {lang.name}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-
-              {/* Frontend */}
-              <div className="space-y-1.5">
-                <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">Frontend</span>
-                <div className="flex flex-wrap gap-2">
-                  {skills.frontend.map((item, idx) => (
-                    <Badge key={idx} variant="blue" className="text-xs">
-                      {item.name}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-
-              {/* Backend & Database */}
-              <div className="space-y-1.5">
-                <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">Backend & Database</span>
-                <div className="flex flex-wrap gap-2">
-                  {skills.backend.concat(skills.database).map((item, idx) => (
-                    <Badge key={idx} variant="cyan" className="text-xs">
-                      {item.name}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Card>
-
-          {/* DSA Progress Card */}
-          <Card className="p-6 space-y-4 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                <div className="flex items-center gap-2 font-bold text-slate-900 text-base">
-                  <Binary className="w-5 h-5 text-emerald-600" /> DSA Progress
-                </div>
-                <Badge variant="emerald">Ongoing</Badge>
-              </div>
-
-              <div className="p-4 rounded-xl bg-emerald-50/60 border border-emerald-200/70 text-center space-y-1">
-                <div className="text-3xl font-extrabold text-emerald-800">350+</div>
-                <div className="text-xs font-mono text-emerald-700 font-medium">
-                  Problems Solved on LeetCode & GeeksforGeeks
-                </div>
-              </div>
-
-              <p className="text-xs text-slate-600 leading-relaxed font-sans">
-                Focused practice in Java covering Arrays, Linked Lists, Binary Trees, Stacks, Queues, and Sorting Algorithms.
-              </p>
-            </div>
-
-            <Link
-              to="/dsa"
-              className="inline-flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold transition-colors mt-auto"
-            >
-              View DSA Dashboard <ChevronRight className="w-4 h-4" />
-            </Link>
-          </Card>
-
-        </div>
-
-        {/* 6. Recent Achievements Preview Card */}
-        <Card className="p-6 space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-            <div className="flex items-center gap-2 font-bold text-slate-900 text-base">
-              <Trophy className="w-5 h-5 text-amber-500" /> Recent Achievements & Milestones
-            </div>
-            <Link to="/achievements" className="text-xs font-mono text-purple-600 hover:underline">
-              View All Achievements →
+            <Link to="/achievements" className="text-xs font-mono text-[#7C3AED] hover:underline font-bold">
+              View All Certifications →
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {achievements.map((item, idx) => (
-              <div key={idx} className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-2">
-                <Badge variant="warning" className="text-[11px]">
-                  {item.badge}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {certifications.map((item, idx) => (
+              <div key={idx} className="p-4 rounded-xl bg-[#F1F5F9] border border-[#CBD5E1] space-y-2">
+                <Badge variant="purple" className="text-[11px] font-mono font-semibold">
+                  {item.issuer}
                 </Badge>
-                <h4 className="text-sm font-bold text-slate-900">{item.title}</h4>
-                <p className="text-xs text-slate-500 font-mono">{item.organization} • {item.date}</p>
+                <h4 className="text-sm font-bold text-[#172033]">{item.title}</h4>
+                <p className="text-xs text-[#475569] font-mono">Issued {item.issueDate}</p>
               </div>
             ))}
           </div>
         </Card>
 
-        {/* 7. Contact CTA Banner */}
-        <div className="rounded-2xl bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 p-8 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="space-y-1 text-center sm:text-left">
-            <h3 className="text-xl sm:text-2xl font-extrabold">Let's build something meaningful.</h3>
-            <p className="text-sm text-purple-100 font-mono">
-              Open for Software Developer & Full Stack Opportunities.
+        {/* 6. Strategic Dark Contrast CTA Banner (#273449 bg) */}
+        <div className="rounded-2xl bg-[#273449] p-8 text-white shadow-md border border-[#334155] flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#7C3AED]/15 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="space-y-1 text-center sm:text-left relative z-10">
+            <h3 className="text-2xl sm:text-3xl font-extrabold">Open for Software Developer & Internship Roles</h3>
+            <p className="text-xs sm:text-sm text-slate-300 font-mono">
+              Ready to bring Java, DSA, and MERN stack skills to engineering teams.
             </p>
           </div>
-          <Button variant="secondary" size="lg" href="/contact" className="bg-white text-purple-700 hover:bg-slate-100 border-transparent flex-shrink-0">
-            Contact Me
+
+          <Button variant="primary" size="lg" href="/contact" className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-transparent flex-shrink-0 relative z-10">
+            Let's Connect
           </Button>
         </div>
 

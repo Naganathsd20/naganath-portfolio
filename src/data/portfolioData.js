@@ -58,9 +58,9 @@ export const education = [
   {
     institution: "Sahyadri College of Engineering & Management",
     degree: "Bachelor of Engineering in Computer Science & Engineering",
-    duration: "2021 - 2025",
+    duration: "Graduation: May 2027",
     semester: "7th Semester (Final Year)",
-    grade: "CGPA: 8.4 / 10.0",
+    grade: "CGPA: 7.83 / 10.0",
     highlights: [
       "Coursework: Data Structures & Algorithms, Object-Oriented Programming with Java, Database Management Systems, Web Technologies, Computer Networks, Operating Systems."
     ]
@@ -70,35 +70,55 @@ export const education = [
 export const skills = {
   programmingLanguages: [
     { name: "Java", desc: "Core concepts & Object-Oriented Programming" },
+    { name: "Python", desc: "Scripting & data manipulation" },
     { name: "JavaScript", desc: "Modern ES6+ web scripting" },
-    { name: "Python", desc: "Scripting & data manipulation basics" },
-    { name: "C", desc: "Procedural programming & DSA basics" }
+    { name: "C", desc: "Procedural programming & fundamentals" },
+    { name: "C++", desc: "Object-oriented & algorithmic programming" }
+  ],
+  dsa: [
+    { name: "Arrays", desc: "Linear data structures & operations" },
+    { name: "Strings", desc: "String manipulation & algorithms" },
+    { name: "Linked Lists", desc: "Singly & doubly linked lists" },
+    { name: "Stacks & Queues", desc: "LIFO/FIFO structures & operations" },
+    { name: "Trees", desc: "Binary trees & tree traversal" },
+    { name: "Sorting & Searching", desc: "Search algorithms & sorting techniques" },
+    { name: "Problem Solving", desc: "Algorithmic logic & problem breakdown" }
   ],
   frontend: [
-    { name: "HTML5", desc: "Semantic page structure & accessibility" },
-    { name: "CSS3", desc: "Responsive layouts, Flexbox & Grid" },
-    { name: "React", desc: "Component UI library & state management" },
+    { name: "HTML5", desc: "Semantic page structure" },
+    { name: "CSS3", desc: "Responsive design & modern CSS" },
+    { name: "JavaScript", desc: "Interactive scripting & DOM" },
+    { name: "React.js", desc: "Component-based UI development" },
+    { name: "Vite", desc: "Fast frontend build tooling" },
     { name: "Tailwind CSS", desc: "Utility-first CSS framework" },
-    { name: "Bootstrap", desc: "Responsive component framework" }
+    { name: "Bootstrap", desc: "Responsive component framework" },
+    { name: "Redux Toolkit", desc: "State management architecture" }
   ],
   backend: [
-    { name: "Node.js", desc: "JavaScript server runtime" },
-    { name: "Express.js", desc: "REST API backend framework" }
+    { name: "Node.js", desc: "Server-side JavaScript runtime" },
+    { name: "Express.js", desc: "Web backend REST API framework" },
+    { name: "REST APIs", desc: "API architecture & JSON endpoints" },
+    { name: "JWT Authentication", desc: "Secure token-based auth workflow" },
+    { name: "Multer", desc: "Multipart file upload middleware" },
+    { name: "Cloudinary", desc: "Cloud storage for media assets" }
   ],
-  database: [
-    { name: "MongoDB", desc: "NoSQL document database" },
-    { name: "MySQL", desc: "Relational SQL database management" }
+  databases: [
+    { name: "MongoDB", desc: "Document-based NoSQL database" },
+    { name: "MySQL", desc: "Relational database management" },
+    { name: "Redis", desc: "In-memory data store & caching" }
   ],
-  toolsAndPlatforms: [
-    { name: "Git", desc: "Distributed version control" },
+  aiMl: [
+    { name: "AI Fundamentals", desc: "Foundational AI principles" },
+    { name: "Machine Learning Fundamentals", desc: "ML workflows & model concepts" },
+    { name: "Python for AI/ML", desc: "Data processing & AI scripting" },
+    { name: "AI API Integration", desc: "RESTful AI service integration" }
+  ],
+  tools: [
+    { name: "Git", desc: "Distributed version control system" },
     { name: "GitHub", desc: "Code hosting & collaboration" },
-    { name: "VS Code", desc: "Primary code editor & extension tools" },
-    { name: "Postman", desc: "REST API testing & debugging client" },
+    { name: "VS Code", desc: "Primary code editor" },
+    { name: "Postman", desc: "API testing & collection client" },
     { name: "MongoDB Compass", desc: "Database GUI management tool" }
-  ],
-  currentlyLearning: [
-    { name: "Data Structures & Algorithms", desc: "Algorithmic problem-solving & optimization" },
-    { name: "AI Fundamentals", desc: "AI concepts & API integration workflows" }
   ]
 };
 
@@ -488,66 +508,36 @@ export const achievements = [
 export const certifications = [
   {
     id: "deloitte-tech-job-simulation",
-    name: "Deloitte Australia – Technology Job Simulation",
-    issuer: "Deloitte Australia (Forage)",
-    issueDate: "30 June 2026",
-    category: "Technology Job Simulation",
-    image: "/Deloitte_Technology_Job_Simulation_Certificate.png",
+    title: "Deloitte Technology Job Simulation",
+    name: "Deloitte Technology Job Simulation",
+    issuer: "Deloitte Australia / Forage",
+    type: "Technology Job Simulation — Certificate of Completion",
+    category: "Technology Job Simulation — Certificate of Completion",
+    issueDate: "June 30, 2026",
     credentialId: "68d6c209e3024180422f4366",
     verificationUrl: "/Deloitte_Technology_Job_Simulation_Certificate.pdf",
-    about: "Completed Deloitte Australia's Technology Job Simulation on the Forage platform, gaining practical exposure to software development, coding, dashboard planning, and solving real-world technology challenges. This simulation strengthened my understanding of professional software engineering workflows and analytical problem-solving.",
-    skills: [
-      "Software Development",
-      "Programming",
-      "Python",
-      "Data Structures",
-      "Data Analysis",
-      "Data Modeling",
-      "Computer Networking",
-      "Data Visualization",
-      "Web Security",
-      "Problem Solving"
-    ]
+    certificatePdf: "/Deloitte_Technology_Job_Simulation_Certificate.pdf",
+    image: "/Deloitte_Technology_Job_Simulation_Certificate.png",
+    description: "Completed practical coding and development tasks as part of the Deloitte Australia Technology Job Simulation on Forage.",
+    about: "Completed practical coding and development tasks as part of the Deloitte Australia Technology Job Simulation on Forage.",
+    skills: ["Coding", "Development"]
   },
   {
-    id: "cert-1",
-    name: "Meta Front-End Developer Specialization",
-    issuer: "Meta / Coursera",
-    issueDate: "July 2024",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
-    credentialId: "META-FED-889102",
-    verificationUrl: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf",
-    skills: ["React", "JavaScript", "HTML5", "CSS3", "Git"]
-  },
-  {
-    id: "cert-2",
-    name: "Java Programming Masterclass",
-    issuer: "Udemy Certification",
-    issueDate: "March 2024",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
-    credentialId: "UD-JAVA-554190",
-    verificationUrl: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf",
-    skills: ["Java Core", "OOPs Concepts", "Collections", "Data Structures"]
-  },
-  {
-    id: "cert-3",
-    name: "Full Stack Web Development (MERN)",
-    issuer: "Internshala Trainings",
-    issueDate: "Dec 2023",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
-    credentialId: "IS-MERN-331092",
-    verificationUrl: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf",
-    skills: ["MongoDB", "Express.js", "React", "Node.js", "REST APIs"]
-  },
-  {
-    id: "cert-4",
-    name: "Database Management Systems & SQL",
-    issuer: "Infosys Springboard",
-    issueDate: "Aug 2023",
-    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=800&q=80",
-    credentialId: "INF-DBMS-99102",
-    verificationUrl: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf",
-    skills: ["SQL Queries", "Relational Databases", "Normalization", "MySQL"]
+    id: "nexbuildon-hack-2026",
+    title: "NEXBUILDON HACK 2026",
+    name: "NEXBUILDON HACK 2026",
+    issuer: "Nexbuildon Community",
+    type: "Certificate of Participation",
+    category: "Certificate of Participation",
+    issueDate: "August 17, 2026",
+    credentialId: "NEX26-PART-0095",
+    verificationUrl: "/Nexbuildon_Hack_2026_Certificate.pdf",
+    certificatePdf: "/Nexbuildon_Hack_2026_Certificate.pdf",
+    image: "/Nexbuildon_Hack_2026_Certificate.png",
+    description: "Certificate of participation recognizing active participation in NEXBUILDON HACK 2026, demonstrating enthusiasm, creativity, and innovation throughout the hackathon journey.",
+    about: "Certificate of participation recognizing active participation in NEXBUILDON HACK 2026, demonstrating enthusiasm, creativity, and innovation throughout the hackathon journey.",
+    skills: ["Hackathon"]
   }
 ];
+
 

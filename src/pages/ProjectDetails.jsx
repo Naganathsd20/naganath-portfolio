@@ -19,8 +19,8 @@ export function ProjectDetails() {
       <PageLayout title="Project Not Found">
         <div className="py-20 text-center space-y-6">
           <Badge variant="purple">404 Error</Badge>
-          <h1 className="text-3xl font-extrabold text-slate-900">Project Not Found</h1>
-          <p className="text-sm text-slate-600">The requested project ID "{id}" does not exist in the portfolio.</p>
+          <h1 className="text-3xl font-extrabold text-[#172033]">Project Not Found</h1>
+          <p className="text-sm text-[#475569]">The requested project ID "{id}" does not exist in the portfolio.</p>
           <Button variant="primary" onClick={() => navigate('/projects')} icon={ArrowLeft}>
             Back to Projects
           </Button>
@@ -74,26 +74,26 @@ export function ProjectDetails() {
         <div>
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 text-xs font-mono font-bold text-slate-500 hover:text-purple-600 transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#475569] hover:text-[#7C3AED] transition-colors"
           >
-            <ArrowLeft className="w-4 h-4 text-purple-600" /> Back to Projects
+            <ArrowLeft className="w-4 h-4 text-[#7C3AED]" /> Back to Projects
           </Link>
         </div>
 
         {/* Header */}
         <div className="space-y-4">
           <div className="flex flex-wrap items-center gap-3">
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#172033] tracking-tight">
               {name}
             </h1>
             {category && (
-              <Badge variant="purple" className="text-xs font-mono py-1 px-3">
+              <Badge variant="purple" className="text-xs font-mono font-semibold py-1 px-3">
                 {category}
               </Badge>
             )}
           </div>
 
-          <p className="text-base sm:text-lg text-slate-700 font-sans leading-relaxed">
+          <p className="text-base sm:text-lg text-[#475569] font-sans leading-relaxed">
             {description}
           </p>
 
@@ -124,7 +124,7 @@ export function ProjectDetails() {
         </div>
 
         {/* Screenshot Carousel */}
-        <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-md group">
+        <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-slate-900 border border-[#CBD5E1] shadow-md group">
           {failedImages[currentIndex] ? (
             <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 text-center space-y-3 text-white">
               <div className="w-14 h-14 rounded-2xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300">
@@ -158,14 +158,14 @@ export function ProjectDetails() {
             <>
               <button
                 onClick={prevSlide}
-                className="absolute left-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-slate-900/80 border border-slate-700 text-white hover:text-purple-400 transition-all z-10"
+                className="absolute left-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-slate-900/80 border border-slate-700 text-white hover:text-purple-300 transition-all z-10"
                 aria-label="Previous Screenshot"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={nextSlide}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-slate-900/80 border border-slate-700 text-white hover:text-purple-400 transition-all z-10"
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-slate-900/80 border border-slate-700 text-white hover:text-purple-300 transition-all z-10"
                 aria-label="Next Screenshot"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -180,7 +180,7 @@ export function ProjectDetails() {
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    currentIndex === idx ? 'w-6 bg-purple-500' : 'w-2 bg-white/40 hover:bg-white/70'
+                    currentIndex === idx ? 'w-6 bg-[#7C3AED]' : 'w-2 bg-white/40 hover:bg-white/70'
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -190,11 +190,11 @@ export function ProjectDetails() {
         </div>
 
         {/* About Section */}
-        <Card className="p-6 sm:p-8 space-y-4">
-          <h2 className="text-xl font-bold text-slate-900 tracking-tight border-b border-slate-100 pb-3">
+        <Card className="p-6 sm:p-8 space-y-4 bg-white border-[#CBD5E1]">
+          <h2 className="text-xl font-extrabold text-[#172033] tracking-tight border-b border-[#CBD5E1] pb-3">
             About the Project
           </h2>
-          <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed font-sans">
+          <div className="space-y-4 text-sm sm:text-base text-[#172033] leading-relaxed font-sans">
             {aboutParagraphs.map((para, idx) => (
               <p key={idx}>{para}</p>
             ))}
@@ -203,13 +203,13 @@ export function ProjectDetails() {
 
         {/* Technologies Used */}
         {techStack && techStack.length > 0 && (
-          <Card className="p-6 sm:p-8 space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 tracking-tight border-b border-slate-100 pb-3">
+          <Card className="p-6 sm:p-8 space-y-4 bg-white border-[#CBD5E1]">
+            <h2 className="text-xl font-extrabold text-[#172033] tracking-tight border-b border-[#CBD5E1] pb-3">
               Technologies Used
             </h2>
             <div className="flex flex-wrap gap-2 pt-1">
               {techStack.map((tech, idx) => (
-                <Badge key={idx} variant="purple" className="text-xs sm:text-sm font-mono py-1 px-3">
+                <Badge key={idx} variant="cyan" className="text-xs sm:text-sm font-mono py-1 px-3">
                   {tech}
                 </Badge>
               ))}
@@ -219,14 +219,14 @@ export function ProjectDetails() {
 
         {/* Key Features */}
         {keyFeatures && keyFeatures.length > 0 && (
-          <Card className="p-6 sm:p-8 space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 tracking-tight border-b border-slate-100 pb-3">
+          <Card className="p-6 sm:p-8 space-y-4 bg-white border-[#CBD5E1]">
+            <h2 className="text-xl font-extrabold text-[#172033] tracking-tight border-b border-[#CBD5E1] pb-3">
               Key Features & Implementation
             </h2>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-700 font-sans">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm text-[#172033] font-sans">
               {keyFeatures.map((feature, idx) => (
                 <li key={idx} className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#7C3AED] mt-0.5 flex-shrink-0" />
                   <span>{feature}</span>
                 </li>
               ))}

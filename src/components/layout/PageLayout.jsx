@@ -15,7 +15,7 @@ export function PageLayout({ children, title }) {
   }, [title]);
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col antialiased font-sans">
+    <div className="min-h-screen bg-[#E8EDF5] text-[#172033] flex flex-col antialiased font-sans">
       <Navbar />
 
       <motion.main

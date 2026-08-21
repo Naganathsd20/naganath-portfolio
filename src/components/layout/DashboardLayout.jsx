@@ -48,16 +48,16 @@ export function DashboardLayout({ children }) {
   ) || navItems[0];
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col md:flex-row antialiased font-sans">
+    <div className="min-h-screen bg-[#0B1120] text-[#F8FAFC] flex flex-col md:flex-row antialiased font-sans">
       
       {/* Mobile Top Header */}
-      <header className="md:hidden sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 px-4 py-3 flex items-center justify-between shadow-xs">
+      <header className="md:hidden sticky top-0 z-40 bg-[#0B1120]/90 backdrop-blur-md border-b border-[#334155] px-4 py-3 flex items-center justify-between shadow-xs">
         <Link to="/" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-xs">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#8B5CF6] to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-xs">
             ND
           </div>
           <div>
-            <div className="font-bold text-sm text-slate-900 leading-none">{personalInfo.shortName}</div>
+            <div className="font-bold text-sm text-[#F8FAFC] leading-none">{personalInfo.shortName}</div>
             <div className="text-[10px] font-mono text-purple-600 mt-0.5">Developer OS</div>
           </div>
         </Link>

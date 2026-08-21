@@ -1,42 +1,35 @@
 import React from 'react';
-import { Trophy } from 'lucide-react';
-import { Card } from '../common/Card';
+import { Sparkles } from 'lucide-react';
 import { Badge } from '../common/Badge';
 
 export function AchievementCard({ item }) {
   const { title, organization, date, description, badge, impact } = item;
 
   return (
-    <Card className="p-6 flex flex-col justify-between hover:border-[#22D3EE]/40 transition-all duration-300">
-      <div>
-        <div className="flex items-start justify-between gap-3 mb-4">
-          <div className="w-10 h-10 rounded-xl bg-[#22D3EE]/10 text-[#22D3EE] border border-[#22D3EE]/20 flex items-center justify-center flex-shrink-0">
-            <Trophy className="w-5 h-5" />
-          </div>
-          <Badge variant="cyan">{badge}</Badge>
+    <div className="rounded-2xl border border-[#CBD5E1] bg-white p-6 flex flex-col justify-between hover:border-[#7C3AED]/70 shadow-2xs transition-all duration-200 text-[#172033]">
+      <div className="space-y-3">
+        <div className="flex items-center justify-between border-b border-[#CBD5E1] pb-3">
+          <Badge variant="warning" className="text-xs font-mono font-semibold">
+            {badge}
+          </Badge>
+          <span className="text-xs font-mono font-semibold text-[#475569]">{date}</span>
         </div>
 
-        <h3 className="text-lg font-bold text-[#F8FAFC] leading-snug mb-1">
-          {title}
-        </h3>
+        <h3 className="text-lg font-extrabold text-[#172033] leading-snug">{title}</h3>
+        
+        <p className="text-xs font-mono font-bold text-[#7C3AED]">{organization}</p>
 
-        <div className="flex items-center gap-2 text-xs font-mono text-[#22D3EE] mb-3">
-          <span>{organization}</span>
-          <span>•</span>
-          <span className="text-[#94A3B8]">{date}</span>
-        </div>
-
-        <p className="text-sm text-[#94A3B8] leading-relaxed mb-4">
+        <p className="text-xs sm:text-sm text-[#475569] leading-relaxed font-sans">
           {description}
         </p>
       </div>
 
       {impact && (
-        <div className="pt-3 border-t border-[#334155] text-xs font-mono text-[#10B981] font-semibold">
-          Impact: {impact}
+        <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs font-semibold text-amber-900 flex items-center gap-2 mt-4">
+          <Sparkles className="w-4 h-4 text-amber-600 flex-shrink-0" />
+          <span>{impact}</span>
         </div>
       )}
-    </Card>
+    </div>
   );
 }
-

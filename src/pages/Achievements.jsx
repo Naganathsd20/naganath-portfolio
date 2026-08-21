@@ -1,58 +1,66 @@
 import React from 'react';
 import { PageLayout } from '../components/layout/PageLayout';
-import { Card } from '../components/common/Card';
 import { Badge } from '../components/common/Badge';
-import { Trophy, Award, Sparkles, CheckCircle2 } from 'lucide-react';
-import { achievements } from '../data/portfolioData';
+import { AchievementCard } from '../components/ui/AchievementCard';
+import { CertificationCard } from '../components/ui/CertificationCard';
+import { Award, Trophy } from 'lucide-react';
+import { achievements, certifications } from '../data/portfolioData';
 
 export function Achievements() {
   return (
-    <PageLayout title="Achievements Dashboard">
-      <div className="space-y-8 pb-12">
+    <PageLayout title="Achievements & Certifications">
+      <div className="space-y-10 pb-12">
         
         {/* Header */}
-        <div className="border-b border-slate-200/80 pb-5">
-          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-amber-600 mb-1">
-            <Trophy className="w-4 h-4 text-amber-500" /> Milestones & Recognition
+        <div className="border-b border-[#CBD5E1] pb-5">
+          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#7C3AED] mb-1">
+            <Trophy className="w-4 h-4 text-[#7C3AED]" /> Honors & Credentials
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Achievements Dashboard
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#172033] tracking-tight">
+            Achievements & Certifications
           </h1>
-          <p className="mt-1 text-sm text-slate-600 font-mono">
-            Hackathon awards, algorithmic coding streaks, and open-source contributions.
+          <p className="mt-1 text-sm text-[#475569] font-mono">
+            Recognized hackathon achievements, problem-solving streaks, and verified professional certifications.
           </p>
         </div>
 
-        {/* Achievements Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {achievements.map((item, idx) => (
-            <Card key={idx} className="p-6 space-y-4 flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                  <Badge variant="warning" className="text-xs">
-                    {item.badge}
-                  </Badge>
-                  <span className="text-xs font-mono text-slate-400">{item.date}</span>
-                </div>
+        {/* SECTION 1: ACHIEVEMENTS */}
+        <section className="space-y-6">
+          <div className="flex items-center justify-between pb-3 border-b border-[#CBD5E1]">
+            <h2 className="flex items-center gap-2 text-2xl font-extrabold text-[#172033] tracking-tight">
+              <Trophy className="w-5 h-5 text-amber-500" />
+              <span>ACHIEVEMENTS</span>
+            </h2>
+            <Badge variant="warning" className="text-xs font-mono font-bold">
+              Recognized Milestones
+            </Badge>
+          </div>
 
-                <h3 className="text-base font-bold text-slate-900 leading-snug">{item.title}</h3>
-                
-                <p className="text-xs font-mono font-semibold text-purple-700">{item.organization}</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {achievements.map((item, idx) => (
+              <AchievementCard key={idx} item={item} />
+            ))}
+          </div>
+        </section>
 
-                <p className="text-xs text-slate-600 leading-relaxed font-sans">
-                  {item.description}
-                </p>
-              </div>
+        {/* SECTION 2: CERTIFICATIONS */}
+        <section className="space-y-6 pt-4">
+          <div className="flex items-center justify-between pb-3 border-b border-[#CBD5E1]">
+            <h2 className="flex items-center gap-2 text-2xl font-extrabold text-[#172033] tracking-tight">
+              <Award className="w-5 h-5 text-[#7C3AED]" />
+              <span>CERTIFICATIONS</span>
+            </h2>
+            <Badge variant="purple" className="text-xs font-mono font-bold">
+              Verified Credentials
+            </Badge>
+          </div>
 
-              {item.impact && (
-                <div className="p-3 rounded-xl bg-amber-50/60 border border-amber-200/70 text-xs font-medium text-amber-800 flex items-center gap-2 mt-auto">
-                  <Sparkles className="w-4 h-4 text-amber-600 flex-shrink-0" />
-                  <span>{item.impact}</span>
-                </div>
-              )}
-            </Card>
-          ))}
-        </div>
+          <div className="max-w-5xl space-y-6">
+            {certifications.map((cert) => (
+              <CertificationCard key={cert.id || cert.title} cert={cert} />
+            ))}
+          </div>
+        </section>
 
       </div>
     </PageLayout>
