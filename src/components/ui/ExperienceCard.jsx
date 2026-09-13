@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Calendar,
-  MapPin,
-  CheckCircle2,
+  Clock,
   FileText,
   Award,
   Download,
@@ -19,12 +18,13 @@ export function ExperienceCard({ exp }) {
   const {
     company,
     role,
-    location,
-    workMode,
+    workMode = 'Remote',
+    location = 'India',
+    dateRange,
+    dates,
     duration,
     about,
-    whatIWorkedOn,
-    skillsGained,
+    skillsGained = [],
     offerLetterUrl,
     offerLetterImage,
     certificateUrl,
@@ -56,70 +56,54 @@ export function ExperienceCard({ exp }) {
   const zoomIn = () => setZoomLevel((prev) => Math.min(prev + 0.25, 2.5));
   const zoomOut = () => setZoomLevel((prev) => Math.max(prev - 0.25, 0.6));
 
+  const formattedDateRange = dateRange || dates || (duration && duration.includes('–') ? duration.split('(')[0].trim() : '');
+  const formattedDuration = duration && duration.includes('(') ? duration.split('(')[1]?.replace(')', '').trim() : (duration || '');
+
   return (
     <>
-      <Card className="p-6 sm:p-8 space-y-6 bg-white border-[#CBD5E1]">
+      <Card className="p-5 sm:p-6 space-y-4 bg-white border-[#CBD5E1] shadow-2xs hover:shadow-xs transition-shadow">
         
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#CBD5E1] pb-6">
-          <div className="space-y-1.5">
-            <div className="flex flex-wrap items-center gap-3">
-              <h3 className="text-2xl font-extrabold text-[#172033] tracking-tight">
-                {company}
-              </h3>
-              <Badge variant="purple">
-                {workMode}
-              </Badge>
-            </div>
+        {/* Header: Company & Role */}
+        <div className="space-y-1">
+          <h3 className="text-xl sm:text-2xl font-extrabold text-[#172033] tracking-tight">
+            {company}
+          </h3>
+          <p className="text-sm sm:text-base font-bold text-[#7C3AED] font-mono">
+            {role}
+          </p>
 
-            <p className="text-base font-bold text-[#7C3AED] font-mono">
-              {role}
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[#475569] pt-1">
-              <span className="inline-flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#7C3AED]" /> {location}
+          {/* Badges / Metadata line */}
+          <div className="flex flex-wrap items-center gap-2 pt-1.5 text-xs font-mono">
+            {workMode && <Badge variant="purple">{workMode}</Badge>}
+            {location && <Badge variant="default">{location}</Badge>}
+            {formattedDateRange && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-[#F1F5F9] text-[#475569] border border-[#CBD5E1] font-semibold">
+                <Calendar className="w-3.5 h-3.5 text-[#7C3AED]" /> {formattedDateRange}
               </span>
-              <span>•</span>
-              <span className="inline-flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-[#7C3AED]" /> {duration}
+            )}
+            {formattedDuration && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-[#EDE9FE] text-[#7C3AED] border border-[#7C3AED]/30 font-semibold">
+                <Clock className="w-3.5 h-3.5 text-[#7C3AED]" /> {formattedDuration}
               </span>
-            </div>
+            )}
           </div>
         </div>
 
-        {/* About */}
-        <div className="space-y-2">
+        {/* About section */}
+        <div className="space-y-1 pt-1">
           <h4 className="text-xs font-mono text-[#475569] uppercase tracking-wider font-bold">
-            About the Internship
+            ABOUT THE INTERNSHIP
           </h4>
-          <p className="text-sm sm:text-base text-[#172033] leading-relaxed font-sans">
+          <p className="text-sm text-[#172033] leading-relaxed font-sans">
             {about}
           </p>
         </div>
 
-        {/* What I Worked On */}
-        {whatIWorkedOn && whatIWorkedOn.length > 0 && (
-          <div className="space-y-3">
-            <h4 className="text-xs font-mono text-[#475569] uppercase tracking-wider font-bold">
-              What I Worked On
-            </h4>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm text-[#172033] font-sans">
-              {whatIWorkedOn.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#7C3AED] flex-shrink-0 mt-0.5" />
-                  <span className="leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {/* Skills Gained */}
+        {/* Skills section */}
         {skillsGained && skillsGained.length > 0 && (
-          <div className="space-y-2.5">
+          <div className="space-y-1.5 pt-1">
             <h4 className="text-xs font-mono text-[#475569] uppercase tracking-wider font-bold">
-              Skills Gained
+              SKILLS
             </h4>
             <div className="flex flex-wrap gap-2">
               {skillsGained.map((skill, idx) => (
@@ -131,12 +115,12 @@ export function ExperienceCard({ exp }) {
           </div>
         )}
 
-        {/* Document Action Buttons */}
-        <div className="pt-4 border-t border-[#CBD5E1] flex flex-wrap items-center gap-3">
+        {/* Proof Document Action Buttons */}
+        <div className="pt-3 border-t border-[#CBD5E1] flex flex-wrap items-center gap-3">
           {offerLetterUrl && (
             <Button
               variant="secondary"
-              size="md"
+              size="sm"
               icon={FileText}
               onClick={() => setActiveDoc({
                 title: `Offer Letter — ${company}`,
@@ -152,7 +136,7 @@ export function ExperienceCard({ exp }) {
           {certificateUrl && (
             <Button
               variant="primary"
-              size="md"
+              size="sm"
               icon={Award}
               onClick={() => setActiveDoc({
                 title: `Completion Certificate — ${company}`,

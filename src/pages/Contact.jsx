@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, User, Tag, FileText, Sparkles, ArrowUpRight } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { Mail, MapPin, Send, CheckCircle2, User, Tag, FileText, ArrowUpRight, AlertCircle } from 'lucide-react';
 import { PageLayout } from '../components/layout/PageLayout';
 import { Card } from '../components/common/Card';
 import { Badge } from '../components/common/Badge';
@@ -16,7 +17,8 @@ export function Contact() {
 
   const [status, setStatus] = useState({
     submitted: false,
-    loading: false
+    loading: false,
+    error: null
   });
 
   const handleChange = (e) => {
@@ -24,18 +26,72 @@ export function Contact() {
       ...formData,
       [e.target.name]: e.target.value
     });
+    if (status.error) {
+      setStatus((prev) => ({ ...prev, error: null }));
+    }
   };
 
-  const handleSubmit = (e) => {
+  const validateForm = () => {
+    if (!formData.name.trim()) return 'Name is required.';
+    const emailRegex = /\S+@\S+\.\S+/;
+    if (!formData.email.trim() || !emailRegex.test(formData.email.trim())) {
+      return 'Please enter a valid email address.';
+    }
+    if (!formData.subject.trim()) return 'Subject is required.';
+    if (!formData.message.trim()) return 'Message is required.';
+    return null;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
 
-    setStatus({ submitted: false, loading: true });
+    const validationError = validateForm();
+    if (validationError) {
+      setStatus({ submitted: false, loading: false, error: validationError });
+      return;
+    }
 
-    setTimeout(() => {
-      setStatus({ submitted: true, loading: false });
+    setStatus({ submitted: false, loading: true, error: null });
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey || serviceId === 'your_service_id_here') {
+      console.warn('EmailJS configuration missing in environment variables.');
+      setTimeout(() => {
+        setStatus({
+          submitted: false,
+          loading: false,
+          error: 'Unable to send the message. Please try again or email me directly.'
+        });
+      }, 600);
+      return;
+    }
+
+    try {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        reply_to: formData.email,
+        to_name: personalInfo.name,
+        to_email: 'naganathdharwadkar20@gmail.com'
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      setStatus({ submitted: true, loading: false, error: null });
       setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 600);
+    } catch (err) {
+      console.error('EmailJS submission error:', err);
+      setStatus({
+        submitted: false,
+        loading: false,
+        error: 'Unable to send the message. Please try again or email me directly.'
+      });
+    }
   };
 
   return (
@@ -44,9 +100,6 @@ export function Contact() {
         
         {/* Header */}
         <div className="border-b border-[#CBD5E1] pb-5">
-          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#7C3AED] mb-1">
-            <Mail className="w-4 h-4 text-[#7C3AED]" /> Get In Touch
-          </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[#172033] tracking-tight">
             Let's Build Something Together.
           </h1>
@@ -61,14 +114,11 @@ export function Contact() {
           
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-2">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#7C3AED]/30 text-purple-200 border border-[#7C3AED]/50 text-xs font-mono font-bold">
-                <Sparkles className="w-3.5 h-3.5 text-purple-300" /> Open for Opportunities
-              </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
                 Interested in working together or hiring?
               </h2>
               <p className="text-sm text-slate-300 font-sans max-w-xl">
-                Feel free to send a direct message or reach out through email/LinkedIn. I respond promptly to all software developer role inquiries.
+                Feel free to reach out for software development opportunities.
               </p>
             </div>
 
@@ -149,7 +199,7 @@ export function Contact() {
                 </div>
               </div>
               <Badge variant="emerald" className="flex-shrink-0 text-xs font-mono font-semibold">
-                Open to Relocation
+                Open to relocation
               </Badge>
             </Card>
 
@@ -158,23 +208,20 @@ export function Contact() {
           {/* RIGHT: Message Form */}
           <div className="lg:col-span-7">
             <Card className="p-6 sm:p-8 space-y-6 bg-white border-[#CBD5E1]">
-              <div className="space-y-1 border-b border-[#CBD5E1] pb-3">
+              <div className="border-b border-[#CBD5E1] pb-3">
                 <h2 className="text-xl font-extrabold text-[#172033]">Send a Direct Message</h2>
-                <p className="text-xs text-[#475569] font-mono">
-                  Message form for recruiters, project opportunities, or general inquiries.
-                </p>
               </div>
 
               {status.submitted ? (
                 <div className="p-6 text-center space-y-3 bg-emerald-50 rounded-xl border border-emerald-200">
                   <CheckCircle2 className="w-8 h-8 text-[#059669] mx-auto" />
-                  <h3 className="text-base font-bold text-[#172033]">Thank you! Message Sent</h3>
+                  <h3 className="text-base font-bold text-[#172033]">Message sent successfully. Thank you for reaching out!</h3>
                   <p className="text-xs text-[#475569] font-sans">
-                    I will review your message and respond as soon as possible.
+                    I will review your message and respond to your email as soon as possible.
                   </p>
                   <button
                     type="button"
-                    onClick={() => setStatus({ submitted: false, loading: false })}
+                    onClick={() => setStatus({ submitted: false, loading: false, error: null })}
                     className="text-xs font-mono text-[#7C3AED] hover:underline pt-2 font-bold"
                   >
                     Send Another Message →
@@ -183,6 +230,13 @@ export function Contact() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4 text-xs font-sans">
                   
+                  {status.error && (
+                    <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-semibold flex items-center gap-2.5">
+                      <AlertCircle className="w-4 h-4 text-rose-600 flex-shrink-0" />
+                      <span>{status.error}</span>
+                    </div>
+                  )}
+
                   <div className="space-y-1">
                     <label className="text-xs font-mono font-bold text-[#475569] uppercase">Your Name</label>
                     <div className="relative">
@@ -193,7 +247,7 @@ export function Contact() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="John Doe / Recruiter Name"
+                        placeholder="Your Name"
                         className="w-full pl-10 pr-3 py-2.5 rounded-xl border border-[#CBD5E1] bg-[#F1F5F9] text-[#172033] text-sm focus:outline-none focus:border-[#7C3AED] focus:bg-white transition-colors"
                       />
                     </div>
@@ -209,7 +263,7 @@ export function Contact() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="recruiter@company.com"
+                        placeholder="user@gmail.com"
                         className="w-full pl-10 pr-3 py-2.5 rounded-xl border border-[#CBD5E1] bg-[#F1F5F9] text-[#172033] text-sm focus:outline-none focus:border-[#7C3AED] focus:bg-white transition-colors"
                       />
                     </div>
@@ -222,6 +276,7 @@ export function Contact() {
                       <input
                         type="text"
                         name="subject"
+                        required
                         value={formData.subject}
                         onChange={handleChange}
                         placeholder="Software Developer Opportunity / Inquiry"
@@ -249,7 +304,7 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={status.loading}
-                    className="w-full py-3 rounded-xl bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition-colors"
+                    className="w-full py-3 rounded-xl bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Send className="w-4 h-4" />
                     {status.loading ? 'Sending...' : 'Send Message'}

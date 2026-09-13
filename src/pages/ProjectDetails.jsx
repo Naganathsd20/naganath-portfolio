@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, ChevronLeft, ChevronRight, Code2, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Code2, CheckCircle2 } from 'lucide-react';
 import { GithubIcon } from '../components/common/Icons';
 import { PageLayout } from '../components/layout/PageLayout';
 import { Button } from '../components/common/Button';
@@ -38,31 +38,14 @@ export function ProjectDetails() {
     keyFeatures,
     liveDemo,
     github,
+    image,
     screenshots,
-    gallery,
-    image
+    gallery
   } = project;
 
-  const slides = (screenshots && screenshots.length > 0)
-    ? screenshots
-    : (gallery && gallery.length > 0)
-    ? gallery
-    : [image];
+  const primaryImage = image || (screenshots && screenshots[0]) || (gallery && gallery[0]);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [failedImages, setFailedImages] = useState({});
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  };
-
-  const handleImageError = (index) => {
-    setFailedImages((prev) => ({ ...prev, [index]: true }));
-  };
+  const [imgError, setImgError] = useState(false);
 
   const aboutParagraphs = typeof about === 'string' ? about.split('\n\n') : [about];
 
@@ -99,107 +82,62 @@ export function ProjectDetails() {
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
             {github && (
-              <Button
-                variant="secondary"
-                size="md"
+              <a
                 href={github}
                 target="_blank"
-                icon={GithubIcon}
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#F1F5F9] hover:bg-white border border-[#CBD5E1] hover:border-[#7C3AED] text-xs font-mono font-bold text-[#172033] transition-colors shadow-2xs"
               >
-                GitHub Repository
-              </Button>
+                <GithubIcon className="w-4 h-4 text-[#172033]" /> GitHub Repository
+              </a>
             )}
             {liveDemo && (
-              <Button
-                variant="primary"
-                size="md"
+              <a
                 href={liveDemo}
                 target="_blank"
-                icon={ExternalLink}
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#7C3AED] hover:bg-[#6D28D9] text-white text-xs font-bold transition-all shadow-xs"
               >
-                Live Demo
-              </Button>
+                <ExternalLink className="w-4 h-4" /> Live Demo
+              </a>
             )}
           </div>
         </div>
 
-        {/* Screenshot Carousel */}
-        <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-slate-900 border border-[#CBD5E1] shadow-md group">
-          {failedImages[currentIndex] ? (
-            <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 text-center space-y-3 text-white">
-              <div className="w-14 h-14 rounded-2xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300">
-                <Code2 className="w-7 h-7" />
+        {/* Single Primary Project Screenshot Image */}
+        {primaryImage && (
+          <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-slate-900 border border-[#CBD5E1] shadow-md p-2 sm:p-3 flex items-center justify-center">
+            {imgError ? (
+              <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 text-center space-y-3 text-white">
+                <div className="w-14 h-14 rounded-2xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300">
+                  <Code2 className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-bold">{name}</h3>
               </div>
-              <h3 className="text-xl font-bold">{name}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 font-mono max-w-md">
-                Screenshot {currentIndex + 1} of {slides.length} — Place screenshot files in the public directory to display app previews.
-              </p>
-              {liveDemo && (
-                <a
-                  href={liveDemo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-500/20 text-purple-300 border border-purple-400/30 text-xs font-mono transition-colors hover:bg-purple-500/30"
-                >
-                  <ExternalLink className="w-3.5 h-3.5" /> View Live Application
-                </a>
-              )}
-            </div>
-          ) : (
-            <img
-              src={slides[currentIndex]}
-              alt={`${name} screenshot ${currentIndex + 1}`}
-              className="w-full h-full object-cover transition-opacity duration-300 ease-out"
-              onError={() => handleImageError(currentIndex)}
-            />
-          )}
-
-          {slides.length > 1 && (
-            <>
-              <button
-                onClick={prevSlide}
-                className="absolute left-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-slate-900/80 border border-slate-700 text-white hover:text-purple-300 transition-all z-10"
-                aria-label="Previous Screenshot"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={nextSlide}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-slate-900/80 border border-slate-700 text-white hover:text-purple-300 transition-all z-10"
-                aria-label="Next Screenshot"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </>
-          )}
-
-          {slides.length > 1 && (
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
-              {slides.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentIndex(idx)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    currentIndex === idx ? 'w-6 bg-[#7C3AED]' : 'w-2 bg-white/40 hover:bg-white/70'
-                  }`}
-                  aria-label={`Go to slide ${idx + 1}`}
-                />
-              ))}
-            </div>
-          )}
-        </div>
+            ) : (
+              <img
+                src={primaryImage}
+                alt={name}
+                className="w-full h-full object-contain rounded-xl shadow-xs"
+                onError={() => setImgError(true)}
+              />
+            )}
+          </div>
+        )}
 
         {/* About Section */}
-        <Card className="p-6 sm:p-8 space-y-4 bg-white border-[#CBD5E1]">
-          <h2 className="text-xl font-extrabold text-[#172033] tracking-tight border-b border-[#CBD5E1] pb-3">
-            About the Project
-          </h2>
-          <div className="space-y-4 text-sm sm:text-base text-[#172033] leading-relaxed font-sans">
-            {aboutParagraphs.map((para, idx) => (
-              <p key={idx}>{para}</p>
-            ))}
-          </div>
-        </Card>
+        {about && (
+          <Card className="p-6 sm:p-8 space-y-4 bg-white border-[#CBD5E1]">
+            <h2 className="text-xl font-extrabold text-[#172033] tracking-tight border-b border-[#CBD5E1] pb-3">
+              About the Project
+            </h2>
+            <div className="space-y-4 text-sm sm:text-base text-[#172033] leading-relaxed font-sans">
+              {aboutParagraphs.map((para, idx) => (
+                <p key={idx}>{para}</p>
+              ))}
+            </div>
+          </Card>
+        )}
 
         {/* Technologies Used */}
         {techStack && techStack.length > 0 && (

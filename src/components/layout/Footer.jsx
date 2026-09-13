@@ -76,7 +76,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 hover:text-purple-300 transition-colors"
                 >
-                  <GithubIcon className="w-3.5 h-3.5 text-[#0891B2]" /> GitHub Profile <ArrowUpRight className="w-3 h-3 text-[#94A3B8]" />
+                  <GithubIcon className="w-3.5 h-3.5 text-[#0891B2] flex-shrink-0" /> GitHub Profile <ArrowUpRight className="w-3 h-3 text-[#94A3B8] flex-shrink-0" />
                 </a>
               </li>
               <li>
@@ -86,15 +86,15 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 hover:text-purple-300 transition-colors"
                 >
-                  <LinkedinIcon className="w-3.5 h-3.5 text-purple-400" /> LinkedIn Profile <ArrowUpRight className="w-3 h-3 text-[#94A3B8]" />
+                  <LinkedinIcon className="w-3.5 h-3.5 text-purple-400 flex-shrink-0" /> LinkedIn Profile <ArrowUpRight className="w-3 h-3 text-[#94A3B8] flex-shrink-0" />
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="inline-flex items-center gap-1.5 hover:text-purple-300 transition-colors"
+                  className="inline-flex items-center gap-1.5 hover:text-purple-300 transition-colors break-all"
                 >
-                  <Mail className="w-3.5 h-3.5 text-purple-400" /> {personalInfo.email}
+                  <Mail className="w-3.5 h-3.5 text-purple-400 flex-shrink-0" /> <span className="break-all">{personalInfo.email}</span>
                 </a>
               </li>
             </ul>

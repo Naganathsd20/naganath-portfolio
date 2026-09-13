@@ -2,25 +2,25 @@ export const personalInfo = {
   name: "Naganath S Dharwadkar",
   shortName: "Naganath",
   profileImage: "/profile.jpg",
-  title: "Final Year Computer Science Engineering Student",
-  subtitle: "Aspiring Full Stack Developer • MERN Stack Developer • Java Developer",
-  tagline: "Final Year Computer Science Engineering Student preparing for Software Developer & Full Stack opportunities with a strong foundation in Java, MERN stack, and Data Structures & Algorithms.",
+  title: "Computer Science Engineering Student | Java Full-Stack & MERN Developer",
+  subtitle: "Java Full-Stack & MERN Developer • CS & Engineering Student",
+  tagline: "Computer Science Engineering Student preparing for Software Developer & Full Stack opportunities with a strong foundation in Java, MERN stack, and Data Structures & Algorithms.",
   
   // Right Hero Card Student Details
-  degree: "BE in Computer Science & Engineering",
-  semester: "7th Semester (Final Year)",
+  degree: "B.E. in Computer Science & Engineering",
+  semester: "7th Semester (Expected 2027)",
   college: "Sahyadri College of Engineering & Management",
-  location: "Dharwad, Karnataka, India",
-  locationShort: "Dharwad, Karnataka",
+  location: "Mangalore, Karnataka, India",
+  locationShort: "Mangalore, Karnataka",
   timezone: "IST (UTC+5:30)",
   currentFocus: ["Java", "MERN Stack", "Data Structures & Algorithms", "AI Fundamentals"],
   
   availability: "Open to Software Developer & Full Stack Opportunities",
-  email: "naganath.dharwadkar@gmail.com",
-  phone: "+91 98765 43210",
+  email: "naganathdharwadkar20@gmail.com",
+  phone: "+91-8277366544",
   github: "https://github.com/naganath-dharwadkar",
   linkedin: "https://linkedin.com/in/naganath-dharwadkar",
-  resumeUrl: "/Naganath_S_Dharwadkar_Resume.pdf",
+  resumeUrl: "/Naganath_S_Dharwadkar_Resume.png",
   resumeImage: "/Naganath_S_Dharwadkar_Resume.png",
   
   bio: "I am a final-year Computer Science & Engineering student at Sahyadri College of Engineering & Management. I am passionate about building full-stack web applications using the MERN stack and developing strong algorithmic solutions with Java.",
@@ -321,90 +321,7 @@ export const projects = [
     liveDemo: "https://ideal-icecream.vercel.app/",
     github: "https://github.com/Naganathsd20/IDEAL-ICECREAM-",
     screenshots: [
-      "/idealicecream-1.png",
-      "/idealicecream-2.png",
-      "/idealicecream-3.png"
-    ]
-  },
-  {
-    id: "taskflow-workspace",
-    name: "TaskFlow Manager",
-    tagline: "Collaborative Task & Project Tracker Web Portal",
-    featured: true,
-    category: "Full Stack MERN",
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1200&q=80",
-    bannerImage: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1600&q=80",
-    description: "Productivity task tracker web portal for engineering student teams to manage project tasks, priorities, and deadlines.",
-    about: "TaskFlow is a collaborative project tracker and task management portal created to help engineering student teams organize coursework assignments and track project submission deadlines. Built using React, Node.js, Express, and MongoDB, it provides a clean Kanban dashboard with Todo, In Progress, Review, and Completed status columns. It solves the common problem of team miscommunication and missed assignment deadlines by offering priority badges and visual deadline indicators. Developing TaskFlow strengthened my understanding of complex React state management, custom hooks, Mongoose database schema validation, and crafting intuitive user interfaces.",
-    techStack: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-    highlights: {
-      techStack: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-      authentication: "Session & Token Auth",
-      mainFeatures: ["Kanban Task Columns", "Priority Badges & Deadline Alerts", "Task Creation & Editing", "Dark Mode UI"],
-      database: "MongoDB with Mongoose Schemas",
-      restApi: "Express.js REST APIs"
-    },
-    liveDemo: "https://taskflow-demo.vercel.app",
-    github: "https://github.com/naganath-dharwadkar/taskflow-manager",
-    screenshots: [
-      "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
-    ]
-  },
-  {
-    id: "codelab-runner",
-    name: "CodeLab Student Portal",
-    tagline: "Interactive Programming Quiz & Practice Platform",
-    featured: true,
-    category: "Full Stack / Java",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80",
-    bannerImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1600&q=80",
-    description: "Educational web platform offering interactive programming quizzes, timed tests, and concept revision for computer science students.",
-    about: "CodeLab is an interactive programming quiz and code practice web platform designed for computer science students preparing for campus placement coding assessments. It solves the need for a fast, centralized practice tool by offering timed multiple-choice quizzes across Java, Data Structures & Algorithms, SQL, and Web Development fundamentals. The system provides real-time timer countdowns, automated quiz scoring, and detailed answer review breakdowns. Through building CodeLab using React, Node.js, and MySQL, I learned how to handle timer state persistence, write efficient relational SQL queries, and implement seamless client-side user experience flows.",
-    techStack: ["React", "JavaScript", "Tailwind CSS", "Node.js", "MySQL"],
-    highlights: {
-      techStack: ["React", "JavaScript", "Tailwind CSS", "Node.js", "MySQL"],
-      authentication: "Student Account Auth",
-      mainFeatures: ["Topic-Wise Quiz Modules", "Timer Countdown Sessions", "Automated Quiz Scoring", "Solution Review Breakdowns"],
-      database: "MySQL Relational Database",
-      restApi: "Express.js REST APIs"
-    },
-    liveDemo: "https://codelab-demo.vercel.app",
-    github: "https://github.com/naganath-dharwadkar/codelab-portal",
-    screenshots: [
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
-    ]
-  },
-  {
-    id: "smart-campus-notice",
-    name: "Smart Campus Notice Portal",
-    tagline: "Digital Notice Board & Department Information System",
-    featured: false,
-    category: "Full Stack Web",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
-    bannerImage: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80",
-    description: "Digital department announcement web portal for managing notices, exam timetables, and academic updates.",
-    about: "Smart Campus Notice Portal is a digital department announcement platform built to digitize college notice boards, exam timetables, and academic study materials. It solves the problem of paper notice boards leading to missed exam updates and outdated physical notices. Built using React, Express.js, and MySQL, the application features role-based access control allowing faculty members to publish announcements while students can filter notices by semester and category. Developing this platform gave me practical experience in implementing secure JWT authentication middleware, designing relational database tables, and building responsive search filtering UI.",
-    techStack: ["React", "Express.js", "MySQL", "Tailwind CSS"],
-    highlights: {
-      techStack: ["React", "Express.js", "MySQL", "Tailwind CSS"],
-      authentication: "Role-Based JWT Auth (Faculty vs Student)",
-      mainFeatures: ["Digital Announcement Posting", "Department Timetable View", "Notice Search & Category Filters", "Mobile Responsive Feed"],
-      database: "MySQL Relational Database",
-      restApi: "Express.js REST APIs"
-    },
-    liveDemo: "https://smart-campus-demo.vercel.app",
-    github: "https://github.com/naganath-dharwadkar/smart-campus-portal",
-    screenshots: [
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80"
+      "/idealicecream-1.png"
     ]
   }
 ];
@@ -414,29 +331,17 @@ export const experience = [
     id: "codec-technologies-internship",
     company: "Codec Technologies Pvt. Ltd.",
     role: "MERN Stack Developer Intern",
-    location: "Remote | India",
-    workMode: "Remote | India",
-    duration: "20 June 2026 – 21 July 2026 (1 Month)",
-    about: "During my one-month remote internship at Codec Technologies Pvt. Ltd., I worked on full-stack web development using the MERN stack. The internship involved building real-world web applications, completing assigned development tasks, and strengthening my understanding of frontend development, backend APIs, database integration, and responsive web design. This experience enhanced my practical software development skills and exposed me to an industry-oriented software development workflow.",
-    whatIWorkedOn: [
-      "Built MERN stack web applications as part of internship assignments.",
-      "Developed responsive user interfaces using React.js.",
-      "Worked with Node.js, Express.js, and MongoDB for backend development.",
-      "Connected frontend applications with REST APIs.",
-      "Improved problem-solving and debugging skills while completing assigned tasks.",
-      "Followed a structured development workflow throughout the internship."
-    ],
+    workMode: "Remote",
+    location: "India",
+    dateRange: "20 June 2026 – 21 July 2026",
+    duration: "1 Month",
+    about: "Completed a 1-month remote internship focused on full-stack web development using the MERN stack. Built responsive user interfaces with React.js and integrated backend REST APIs using Node.js, Express.js, and MongoDB. Strengthened practical knowledge of database integration, component design, and industry software workflows.",
     skillsGained: [
       "React.js",
       "Node.js",
       "Express.js",
       "MongoDB",
-      "REST APIs",
-      "JavaScript",
-      "Git",
-      "GitHub",
-      "Responsive Web Design",
-      "Problem Solving"
+      "REST APIs"
     ],
     offerLetterUrl: "/Codec_Offer_Letter.pdf",
     offerLetterImage: "/Codec_Offer_Letter.png",
@@ -447,29 +352,17 @@ export const experience = [
     id: "internpe-ai-ml-internship",
     company: "InternPe",
     role: "AI & Machine Learning Intern",
+    workMode: "Remote",
     location: "India",
-    workMode: "Remote • 6 Weeks",
-    duration: "22 June 2026 – 05 August 2026",
-    about: "During my six-week AI & Machine Learning Internship at InternPe, I explored the fundamentals of Artificial Intelligence, Machine Learning, Data Science, and Analytics through practical assignments and project-based learning. The internship strengthened my understanding of machine learning concepts, data preprocessing, model development, and analytical problem-solving while providing valuable exposure to real-world AI workflows.",
-    whatIWorkedOn: [
-      "Learned the fundamentals of Artificial Intelligence and Machine Learning.",
-      "Worked on hands-on assignments related to Data Science and Analytics.",
-      "Improved knowledge of data preprocessing and feature engineering.",
-      "Explored machine learning workflows and model development.",
-      "Strengthened analytical thinking and problem-solving skills.",
-      "Completed all assigned internship activities successfully."
-    ],
+    dateRange: "22 June 2026 – 05 August 2026",
+    duration: "6 Weeks",
+    about: "Completed a 6-week remote internship focused on Artificial Intelligence, Machine Learning, and Data Analytics. Worked on practical assignments involving data preprocessing, feature engineering, and ML model training using Python, Pandas, and Scikit-learn. Developed strong analytical problem-solving skills and hands-on experience with AI workflows.",
     skillsGained: [
-      "Artificial Intelligence",
-      "Machine Learning",
-      "Data Science",
-      "Data Analytics",
       "Python",
-      "NumPy",
+      "Machine Learning",
+      "Data Analytics",
       "Pandas",
-      "Scikit-learn",
-      "Data Preprocessing",
-      "Problem Solving"
+      "Scikit-learn"
     ],
     offerLetterUrl: "/InternPe_Offer_Letter.png",
     offerLetterImage: "/InternPe_Offer_Letter.png",
@@ -480,28 +373,37 @@ export const experience = [
 
 export const achievements = [
   {
-    title: "1st Runner Up - College Web Hackathon 2024",
-    organization: "Sahyadri CS TechFest",
-    date: "April 2024",
-    description: "Built the prototype for Eatzy Food Ordering Web Portal within a 24-hour hackathon timeframe.",
-    badge: "Hackathon Award",
-    impact: "Secured 2nd rank among 35 student teams."
+    id: "nexbuildon-hack-2026",
+    title: "NEXBUILDON HACK 2026",
+    organization: "NEXBUILDON COMMUNITY",
+    date: "17 August 2026",
+    description: "Participated in NEXBUILDON HACK 2026, demonstrating enthusiasm, creativity, and innovation throughout the hackathon journey.",
+    badge: "Hackathon Participation",
+    type: "Hackathon Participation",
+    certificateImage: "/Nexbuildon_Hack_2026_Certificate.png",
+    certificateUrl: "/Nexbuildon_Hack_2026_Certificate.png"
   },
   {
-    title: "350+ DSA Problems Solved",
-    organization: "LeetCode & GeeksforGeeks",
-    date: "Ongoing",
-    description: "Solved algorithmic problems covering Arrays, Linked Lists, Stacks, Queues, Binary Trees, and Sorting Algorithms.",
-    badge: "Problem Solving",
-    impact: "Consistent coding practice streak."
+    id: "oosc-4-hackathon",
+    title: "OOSC 4.0 Hackathon",
+    organization: "Indian Institute of Information Technology (IIIT), Allahabad",
+    date: "2026",
+    description: "Participated in the OOSC 4.0 Hackathon organized as part of the Opportunity Open Source Conference.",
+    badge: "Hackathon Participation",
+    type: "Hackathon Participation",
+    certificateImage: "/OOSC_4.0_Hackathon_Certificate.jpg",
+    certificateUrl: "/OOSC_4.0_Hackathon_Certificate.jpg"
   },
   {
-    title: "Active Open Source Contributor",
-    organization: "GitHub Community",
-    date: "2023 - Present",
-    description: "Contributed bug fixes and documentation updates to student community web repositories.",
-    badge: "Open Source",
-    impact: "10+ Merged Pull Requests."
+    id: "omnikon-national-hackathon-2026",
+    title: "Omnikon National Hackathon 2026",
+    organization: "Omnikon",
+    date: "2026",
+    description: "Participated in Omnikon National Hackathon 2026.",
+    badge: "Hackathon Participation",
+    type: "Hackathon Participation",
+    certificateImage: "/Omnikon_National_Hackathon_2026_Certificate.jpg",
+    certificateUrl: "/Omnikon_National_Hackathon_2026_Certificate.jpg"
   }
 ];
 
@@ -510,34 +412,92 @@ export const certifications = [
     id: "deloitte-tech-job-simulation",
     title: "Deloitte Technology Job Simulation",
     name: "Deloitte Technology Job Simulation",
+    organization: "Deloitte Australia / Forage",
     issuer: "Deloitte Australia / Forage",
-    type: "Technology Job Simulation — Certificate of Completion",
-    category: "Technology Job Simulation — Certificate of Completion",
+    date: "June 30, 2026",
     issueDate: "June 30, 2026",
+    badge: "Job Simulation",
+    type: "Job Simulation",
+    category: "Technology Job Simulation — Certificate of Completion",
     credentialId: "68d6c209e3024180422f4366",
     verificationUrl: "/Deloitte_Technology_Job_Simulation_Certificate.pdf",
     certificatePdf: "/Deloitte_Technology_Job_Simulation_Certificate.pdf",
+    certificateUrl: "/Deloitte_Technology_Job_Simulation_Certificate.pdf",
+    certificateImage: "/Deloitte_Technology_Job_Simulation_Certificate.png",
     image: "/Deloitte_Technology_Job_Simulation_Certificate.png",
     description: "Completed practical coding and development tasks as part of the Deloitte Australia Technology Job Simulation on Forage.",
     about: "Completed practical coding and development tasks as part of the Deloitte Australia Technology Job Simulation on Forage.",
     skills: ["Coding", "Development"]
   },
   {
-    id: "nexbuildon-hack-2026",
-    title: "NEXBUILDON HACK 2026",
-    name: "NEXBUILDON HACK 2026",
-    issuer: "Nexbuildon Community",
+    id: "infosys-mastering-javascript",
+    title: "Mastering JavaScript",
+    organization: "Infosys Springboard",
+    issuer: "Infosys Springboard",
+    date: "May 15, 2025",
+    issueDate: "May 15, 2025",
+    badge: "Certification",
+    type: "Certification",
+    category: "Course Completion Certificate",
+    certificateImage: "/Mastering_JavaScript_Certificate.jpg",
+    certificateUrl: "/Mastering_JavaScript_Certificate.jpg"
+  },
+  {
+    id: "infosys-comptia-a-plus-core-2",
+    title: "CompTIA A+ Core 2: Operating System & Network Management",
+    organization: "Infosys Springboard",
+    issuer: "Infosys Springboard",
+    date: "May 5, 2025",
+    issueDate: "May 5, 2025",
+    badge: "Certification",
+    type: "Certification",
+    category: "Course Completion Certificate",
+    certificateImage: "/CompTIA_A_Plus_Core_2_Certificate.jpg",
+    certificateUrl: "/CompTIA_A_Plus_Core_2_Certificate.jpg"
+  },
+  {
+    id: "infosys-database-and-sql",
+    title: "Database and SQL",
+    organization: "Infosys Springboard",
+    issuer: "Infosys Springboard",
+    date: "October 31, 2025",
+    issueDate: "October 31, 2025",
+    badge: "Certification",
+    type: "Certification",
+    category: "Course Completion Certificate",
+    certificateImage: "/Database_and_SQL_Certificate.jpg",
+    certificateUrl: "/Database_and_SQL_Certificate.jpg"
+  },
+  {
+    id: "arun-goel-dbms",
+    title: "Database Management System (DBMS)",
+    organization: "Arun Goel / GET SDE READY",
+    issuer: "Arun Goel / GET SDE READY",
+    date: "02/11/2025",
+    issueDate: "02/11/2025",
+    badge: "Certification",
+    type: "Certification",
+    category: "Course Completion Certificate",
+    credentialId: "e5af5922f4b04691",
+    certificateImage: "/DBMS_Arun_Goel_Certificate.jpg",
+    certificateUrl: "/DBMS_Arun_Goel_Certificate.jpg"
+  },
+  {
+    id: "viksit-bharat-quiz-2027",
+    title: "Viksit Bharat Young Leaders Dialogue (VBYLD) 2027 Quiz",
+    organization: "Ministry of Youth Affairs and Sports, MyBharat and MyGov",
+    issuer: "Ministry of Youth Affairs and Sports, MyBharat and MyGov",
+    badge: "Certificate of Participation",
     type: "Certificate of Participation",
     category: "Certificate of Participation",
-    issueDate: "August 17, 2026",
-    credentialId: "NEX26-PART-0095",
-    verificationUrl: "/Nexbuildon_Hack_2026_Certificate.pdf",
-    certificatePdf: "/Nexbuildon_Hack_2026_Certificate.pdf",
-    image: "/Nexbuildon_Hack_2026_Certificate.png",
-    description: "Certificate of participation recognizing active participation in NEXBUILDON HACK 2026, demonstrating enthusiasm, creativity, and innovation throughout the hackathon journey.",
-    about: "Certificate of participation recognizing active participation in NEXBUILDON HACK 2026, demonstrating enthusiasm, creativity, and innovation throughout the hackathon journey.",
-    skills: ["Hackathon"]
+    certificateImage: "/Viksit_Bharat_Quiz_Certificate.jpg",
+    certificateUrl: "/Viksit_Bharat_Quiz_Certificate.jpg"
   }
+];
+
+export const achievementsAndCertifications = [
+  ...achievements,
+  ...certifications
 ];
 
 
